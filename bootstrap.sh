@@ -2,6 +2,11 @@
 
 set -e
 
-launchctl stop com.apple.cfprefsd.xpc.agent
-cp osx/home/Library/Preferences/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist
-launchctl start com.apple.cfprefsd.xpc.agent
+base=$(dirname ${BASH_SOURCE})
+cd $base
+git pull origin master
+
+find home -type f -execdir ln -sf $(pwd)/home/{} ~/{} \;
+
+OSTYPE=$(uname -s |sed -e 's/GNU\///')
+exec ./bootstrap-$OSTYPE.sh
