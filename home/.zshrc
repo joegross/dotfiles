@@ -11,7 +11,7 @@ MANPATH=$(manpath)
 bindkey -e
 
 autoload -U colors && colors
-PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%35<...<%~)%{$reset_color%} %(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
+PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%15<...<%~)%{$reset_color%} %(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
 #PROMPT2="more> "
 #PROMPT3="Choice? "
 #PROMPT4="+ "
