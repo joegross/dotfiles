@@ -15,7 +15,7 @@ PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%35<...<%~)%{$reset_color%} %(?..!%?! )%{$fg
 #PROMPT2="more> "
 #PROMPT3="Choice? "
 #PROMPT4="+ "
-RPROMPT=%~
+RPROMPT='%{$fg[green]%}%~%{$reset_color%}'
 
 
 function title() {
