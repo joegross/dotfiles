@@ -1,9 +1,11 @@
 # .zshenv
+
+OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export MANPATH=/usr/local/share/man:/usr/share/man
-if [[ -f $HOME/.github_token ]]; then
+if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
 fi
 export LESSCHARSET='UTF-8'
@@ -14,6 +16,7 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[0;30;43m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;31m'
+#export LESS_TERMCAP_us=$'\E[01;32m'
 export GREP_OPTIONS='--color=auto'
 #if [[ -f ~/.dir_colors ]]; then
 #	eval $(dircolors -b ~/.dir_colors)
