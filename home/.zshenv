@@ -3,7 +3,9 @@ export EDITOR=emacs
 export LESS=iMFXR
 export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export MANPATH=/usr/local/share/man:/usr/share/man
-export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
+if [[ -f $HOME/.github_token ]]; then
+    export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
+fi
 export LESSCHARSET='UTF-8'
 export LESS_TERMCAP_mb=$'\e[01;32m'
 export LESS_TERMCAP_md=$'\e[0;34m'
