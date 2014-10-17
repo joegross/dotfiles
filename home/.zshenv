@@ -3,7 +3,7 @@
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
-export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export MANPATH=/usr/local/share/man:/usr/share/man
 if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
