@@ -55,21 +55,24 @@ if [ -f $HOME/.ssh_agent ]; then
     source $HOME/.ssh_agent
 fi
 
-  function powerline_precmd() {
-      export PS1="$(~/powerline-shell.py $? --shell zsh 2> /dev/null)"
-    }
+function powerline_precmd() {
+    export PS1="$(~/powerline-shell.py $? --shell zsh 2> /dev/null)"
+}
 
-    function install_powerline_precmd() {
-      for s in "${precmd_functions[@]}"; do
+function install_powerline_precmd() {
+    for s in "${precmd_functions[@]}"; do
         if [ "$s" = "powerline_precmd" ]; then
-          return
+            return
         fi
-      done
-      precmd_functions+=(powerline_precmd)
-    }
+    done
+    precmd_functions+=(powerline_precmd)
+}
 
-#    install_powerline_precmd
-
-if [ -x /usr/local/bin/aws_zsh_completer.sh ]; then
-    source /usr/local/bin/aws_zsh_completer.sh
-fi
+for source in \
+        /usr/local/bin/aws_zsh_completer.sh \
+        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
+        ; do
+    if [ -f "$source" ]; then
+        source $source
+    fi
+done
