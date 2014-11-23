@@ -1,0 +1,105 @@
+# Joe Gross
+# .zoptions - souced out of .zshrc
+# This file is sourced in INTERACTIVE shells only. 
+
+
+setopt   ALL_EXPORT             # all paramaters are exported
+unsetopt ALWAYS_LAST_PROMPT     # return to the last prompt on completions
+setopt   ALWAYS_TO_END          # move matches to end of word
+unsetopt AUTO_CD                # if command is not in hash cd into dir
+unsetopt AUTO_LIST              # list possible completions
+unsetopt AUTO_MENU              # use menu or menu complete
+# unsetopt AUTO_NAME_DIRS               # translate to ~paths
+unsetopt AUTO_PARAM_KEYS        # fill in params
+setopt   AUTO_PUSHD             # make cd like pushd
+setopt   AUTO_REMOVE_SLASH      # remove slashes on word delimiter
+unsetopt   AUTO_RESUME          # auto resume on simple commands
+setopt   BG_NICE                # run background jobs niced
+setopt   BRACE_CCL              # allow {a-zA-Z} expansions
+unsetopt CDABLE_VARS            # try to expand cd's
+unsetopt   CHASE_LINKS          # resolve symbolic links
+setopt   COMPLETE_ALIASES       # don't substitute aliases until later
+unsetopt COMPLETE_IN_WORD       # complete at end of word
+setopt   CORRECT                # try to correct spelling of commands
+setopt   CORRECT_ALL            # try to correct all arguements
+unsetopt CSH_JUNKIE_HISTORY     # allow csh history
+unsetopt CSH_JUNKIE_LOOPS       # allow csh loops
+# unsetopt CSH_JUNKIE_PAREN     # allow csh parens
+unsetopt CSH_JUNKIE_QUOTES      # compains about long quotes expressions
+unsetopt CSH_NULL_GLOB          # don't report errors on empty globs
+unsetopt ERR_EXIT               # if return != 0 then exit (BAD)
+setopt   EXTENDED_GLOB          # allow extended glob
+setopt   GLOB_DOTS              # don't require explicit glob of . files
+# setopt   GLOB_SUBST           # not quite sure but what the hell
+setopt   HASH_CMDS              # do command hashing
+setopt   HASH_DIRS              # hash dirs that we run commands from
+setopt   HASH_LIST_ALL          # hash entire path before first completion
+unsetopt IGNORE_BRACES          # don't perform brace expansion
+unsetopt IGNORE_EOF             # don't exit on EOF
+setopt   INTERACTIVE_COMMENTS   # allow comments even in interactive shells
+# unsetopt LIST_AMBIGUOUS               # completions are shown if unambiguous
+setopt   LIST_TYPES             # show file types for completion
+setopt   MAGIC_EQUAL_SUBST      # expand on identifier=expression
+unsetopt MAIL_WARNING           # print a warning if mail accessed since check
+setopt   MARK_DIRS              # append a / to dir names
+setopt   MENU_COMPLETE          # complete for us
+setopt   MONITOR                # allow job control (default)
+unsetopt NO_BAD_PATTERN         # leave bad patterns alone
+setopt   NO_BEEP                # don't beep
+setopt   NO_CLOBBER             # don't overwrite files with >
+unsetopt NO_EQUALS              # don't perform = filename subs
+unsetopt NO_EXEC                # read commands and check but don't execute
+unsetopt NO_GLOB                # disable filename globbing
+# setopt NO_FLOW_CONTROL        # disable flow control
+setopt   NO_LIST_BEEP           # don't beep on list completions
+unsetopt NO_PROMPT_CR           # don't print cr during line editor
+unsetopt NO_RCS                 # don't source rc files
+unsetopt NO_UNSET               # error on unset parameters
+unsetopt NULL_GLOB              # delete null globs
+setopt   NUMERIC_GLOB_SORT      # sort numerical filenames numerically
+unsetopt OVER_STRIKE            # overstrike mode
+unset    PATH_DIRS              # do a path search on commands
+setopt   PRINT_EXIT_VALUE       # print exit value of non-zero status jobs
+setopt   PROMPT_SUBST           # substitute ${...}, $(...), and $[...]
+setopt   PUSHD_IGNORE_DUPS      # ignore dups on pushd
+setopt   PUSHD_MINUS            # see popd below
+setopt   PUSHD_SILENT           # don't print stack on pushd
+setopt   PUSHD_TO_HOME          # pushd alone = pushd $HOME
+unsetopt RC_EXPAND_PARAM        #
+unsetopt RC_QUOTES              #
+setopt   REC_EXACT              # reconize exact matches even if ambiguous
+unsetopt RM_STAR_SILENT         # don't query user for rm *
+setopt   SUN_KEYBOARD_HACK      # sun sucks
+setopt   TRANSIENT_RPROMPT      # Remove any right prompt from display when accepting a command line
+setopt   ZLE                    # use zsh line editor
+
+# history
+setopt APPEND_HISTORY          # append or overwrite history file
+setopt NO_BANG_HIST            # don't do history substitutions
+setopt EXTENDED_HISTORY        # Save each  command's beginning timestamp and the duration to the history file.
+setopt HIST_ALLOW_CLOBBER      # allows history references to clobber files even when CLOBBER is unset
+setopt NO_HIST_BEEP            # don't beep on bad history searches
+setopt HIST_EXPIRE_DUPS_FIRST  # the oldest history event that has a duplicate to be lost before losing a unique event from the list.
+setopt HIST_FCNTL_LOCK         # use fcntl locking
+setopt HIST_FIND_NO_DUPS       # do not display duplicates of a line previously found
+setopt HIST_IGNORE_DUPS        # Do not enter command lines into the history list if they are duplicates of the previous event.
+setopt HIST_IGNORE_ALL_DUPS    # If a new command line being added to the history list duplicates an older one, the older command is removed from the list
+setopt HIST_IGNORE_SPACE       # Remove command lines from the history list when the first character on the line is a space
+setopt HIST_LEX_WORDS          # words read in from a history file are divided up in a similar fashion to normal shell command line handling.
+setopt NO_HIST_NO_FUNCTIONS    # Remove function definitions from the history list.
+setopt HIST_NO_STORE           # don't store history command in history
+# leads to corruption
+#setopt HIST_REDUCE_BLANKS      # Remove superfluous blanks from each command line being added to the history list.
+setopt HIST_SAVE_BY_COPY       # Save new history by copying
+setopt NO_HIST_SAVE_NO_DUPS    # When writing out the history file, older commands that duplicate newer ones are omitted.
+setopt HIST_VERIFY             # reload the line into the editing buffer.
+setopt INC_APPEND_HISTORY      # incrementally save history
+setopt SHARE_HISTORY           # share history between shells
+
+# Job Control
+setopt AUTO_CONTINUE     # stopped jobs that are removed from the job table with the disown builtin command are automatically sent a CONT signal to make them running.
+setopt CHECK_JOBS        # Report the status of background and suspended jobs before exiting a shell with job control; a second attempt to exit the shell will succeed. 
+setopt NO_HUP            # Send the HUP signal to running jobs when the shell exits.
+setopt LONG_LIST_JOBS    # List jobs in the long format by default.
+setopt NOTIFY            # Report the status of background jobs immediately, rather than waiting until just before printing a prompt.
+
