@@ -3,7 +3,24 @@
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+tmppath=()
+for p in \
+    $HOME/bin \
+    /usr/local/sbin \
+    /usr/local/bin \
+    /opt/local/bin \
+    /opt/local/sbin \
+    /usr/bin \
+    /bin \
+    /usr/sbin \
+    /sbin \
+    /srv/genops/tools \
+    ; do
+    if [[ -d $p ]]; then
+        tmppath+=$p
+    fi
+done
+PATH=$(IFS=:; echo "${tmppath[*]}")
 export MANPATH=/usr/local/share/man:/usr/share/man
 if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
