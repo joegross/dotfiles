@@ -1,0 +1,14 @@
+la() {source ~/.zaliases}
+..() {cd ..}
+p() {ps auxf}
+pp() {ps auxfww}
+d() {ls -l $* | less -iMqXER}
+nd() {ls -al $* | less -iMqXER}
+l() {ls -CsF $* | less -iMqXER}
+nl() {ls -asCF $* | less -MqXER}
+sd() {sudo -s}
+watchd() {watch -n .2 grep -A 1 dirty /proc/vmstat}
+srd () {screen -r -d `screen -list|grep pts|awk '{print $1}'`}
+doagent() {ssh-agent -s >! ~/.ssh_agent}
+loadagent() {source ~/.ssh_agent}
+em() {emacsclient -c $*}

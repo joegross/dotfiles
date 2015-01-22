@@ -41,9 +41,9 @@ function title() {
 }
 
 # precmd is called just before the prompt is printed
-function precmd() {
-    title "zsh" "%m:%55<...<%~"
-}
+#function precmd() {
+#    title "zsh" "%m:%55<...<%~"
+#}
 
 # preexec is called just before any command line is executed
 #function preexec() {

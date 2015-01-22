@@ -44,3 +44,9 @@ export GREP_OPTIONS='--color=auto'
 if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
+
+# docker
+if [[ -x /usr/local/bin/boot2docker ]]; then
+    $(/usr/local/bin/boot2docker shellinit 2> /dev/null)
+fi
+
