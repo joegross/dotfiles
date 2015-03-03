@@ -3,25 +3,19 @@
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
-tmppath=()
-for p in \
+# add extra paths completions idempotentally
+for addpath in \
     $HOME/bin \
-    /usr/local/sbin \
-    /usr/local/bin \
-    /opt/local/bin \
-    /opt/local/sbin \
-    /usr/bin \
-    /bin \
-    /usr/sbin \
-    /sbin \
     /srv/genops/tools \
     ; do
-    if [[ -d $p ]]; then
-        tmppath+=$p
+    # Return the index of the searched-for element
+    # It will return one greater than the number of elements if not found
+    if [[ ${fpath[(i)${addpath}]} -gt ${#fpath} ]]; then
+        if [[ -d $addpath ]]; then
+            path+=$addpath
+        fi
     fi
 done
-PATH=$(IFS=:; echo "${tmppath[*]}")
-export MANPATH=/usr/local/share/man:/usr/share/man
 if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
 fi

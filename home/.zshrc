@@ -77,4 +77,16 @@ for source in \
     fi
 done
 
-
+# add zsh completions idempotentally
+for compl in \
+        /usr/local/share/zsh-completions \
+    ; do
+    # Return the index of the searched-for element
+    # It will return one greater than the number of elements if not found
+    if [[ ${fpath[(i)${compl}]} -gt ${#fpath} ]]; then
+        if [[ -d $compl ]]; then
+            tmppath+=$p
+            fpath+=$comp
+        fi
+    fi
+done
