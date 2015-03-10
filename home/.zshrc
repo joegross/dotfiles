@@ -69,9 +69,10 @@ function install_powerline_precmd() {
 }
 
 for source in \
+        /usr/local/bin/aws_zsh_completer.sh \
         /usr/local/share/zsh/site-functions/_aws \
         /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-        ; do
+    ; do
     if [ -f "$source" ]; then
         source $source
     fi
