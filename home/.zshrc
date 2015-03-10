@@ -71,12 +71,21 @@ function install_powerline_precmd() {
 for source in \
         /usr/local/share/zsh/site-functions/_aws \
         /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-        /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh \
         ; do
     if [ -f "$source" ]; then
         source $source
     fi
 done
+
+# history substring search
+# bind P and N for EMACS mode
+if [ -f /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
+   source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+   bindkey -M emacs '^P' history-substring-search-up
+   bindkey -M emacs '^N' history-substring-search-down
+fi
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 # add zsh completions idempotentally
 for compl in \
@@ -91,10 +100,5 @@ for compl in \
         fi
     fi
 done
-
-# history substring search
-# bind P and N for EMACS mode
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
