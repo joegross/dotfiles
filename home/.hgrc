@@ -1,0 +1,42 @@
+[ui]
+merge = internal:merge
+verbose = True
+username = Joe Gross <jgross@stimpy.net>
+
+[extensions]
+color = 
+extdiff = 
+graphlog = 
+mq = 
+pager = 
+parentrevspec = 
+progress = 
+purge = 
+rebase = 
+record = 
+transplant = 
+mercurial_keyring = 
+eol = 
+
+[pager]
+pager = LESS='FSRX' less
+attend = annotate, cat, diff, export, glog, log, qdiff, bdiff, out
+
+[annotate]
+ignorews = 1
+
+[revsetalias]
+#bparent = parents(min(branch(.)))
+#bdest = max(branch(bparent))
+
+[alias]
+#bst = status --rev bparent
+#bdiff = diff -r bparent
+#bparent = id -b -r bparent
+#bopen = !$HG branch $1 && $HG commit -m "<<Replace me with a good title. branch: $1, parent: `hg id -b -r .`>>"
+#bfinish = rebase --collapse --dest $1
+#brebase = rebase --keepbranches --dest $1
+#btrash = strip -r "branch($1)"
+#bpush = push -b .
+#freebase = rebase
+#bmakedraft = phase -d --force -r "branch($1)"
