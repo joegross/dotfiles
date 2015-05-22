@@ -10,6 +10,13 @@ MANPATH=$(manpath)
 
 bindkey -e
 
+# get ec2 instance name
+if [ -x /usr/bin/ec2metadata ]; then
+    export AWS_DEFAULT_REGION=$(ec2metadata  --availability-zone | sed 's/\([0-9][0-9]*\)[a-z]*$/\1/')
+    instance=$(ec2metadata --instance-id)
+    HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[?Key==`Name`].Value' --output=text)
+fi
+
 autoload -U colors && colors
 PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%15<...<%~)%{$reset_color%} %(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
 #PROMPT2="more> "
@@ -70,6 +77,7 @@ function install_powerline_precmd() {
 
 for source in \
         /usr/local/bin/aws_zsh_completer.sh \
+        /usr/share/zsh/vendor-completions/_awscli \
         /usr/local/share/zsh/site-functions/_aws \
         /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
     ; do
@@ -101,5 +109,6 @@ for compl in \
         fi
     fi
 done
+
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
