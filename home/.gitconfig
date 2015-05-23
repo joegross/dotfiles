@@ -1,0 +1,7 @@
+[user]
+	name = Joe Gross
+	email = jgross@stimpy.net
+[push]
+	default = simple
+[color]
+	ui = auto
