@@ -15,7 +15,7 @@ purge =
 rebase = 
 record = 
 transplant = 
-mercurial_keyring = 
+#mercurial_keyring = 
 eol = 
 
 [pager]
@@ -25,11 +25,11 @@ attend = annotate, cat, diff, export, glog, log, qdiff, bdiff, out
 [annotate]
 ignorews = 1
 
-[revsetalias]
+#[revsetalias]
 #bparent = parents(min(branch(.)))
 #bdest = max(branch(bparent))
 
-[alias]
+#[alias]
 #bst = status --rev bparent
 #bdiff = diff -r bparent
 #bparent = id -b -r bparent
