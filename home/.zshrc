@@ -14,7 +14,7 @@ bindkey -e
 if [ -x /usr/bin/ec2metadata ]; then
     export AWS_DEFAULT_REGION=$(ec2metadata  --availability-zone | sed 's/\([0-9][0-9]*\)[a-z]*$/\1/')
     instance=$(ec2metadata --instance-id)
-    HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[?Key==`Name`].Value' --output=text)
+    HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[].Value' --output=text)
 fi
 
 autoload -U colors && colors
