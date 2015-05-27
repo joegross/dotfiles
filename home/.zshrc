@@ -110,5 +110,11 @@ for compl in \
     fi
 done
 
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# export PYENV_ROOT=/usr/local/var/pyenv
+if [ -x /usr/local/opt/autoenv/activate.sh ]; then
+    source /usr/local/opt/autoenv/activate.sh
+fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
