@@ -41,3 +41,5 @@ if [[ -x /usr/local/bin/boot2docker ]]; then
     $(/usr/local/bin/boot2docker shellinit 2> /dev/null)
 fi
 
+# nextopio
+export ANDROID_HOME="/usr/local/opt/android-sdk"
