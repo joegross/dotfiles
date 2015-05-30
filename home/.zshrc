@@ -114,8 +114,9 @@ done
 #if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # export PYENV_ROOT=/usr/local/var/pyenv
-#if [ -x /usr/local/opt/autoenv/activate.sh ]; then
-#    source /usr/local/opt/autoenv/activate.sh
-#fi
+
+if [ -x /usr/local/opt/autoenv/activate.sh ]; then
+    source /usr/local/opt/autoenv/activate.sh
+fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
