@@ -8,6 +8,8 @@ HISTFILE=~/.zsh_history
 unset MANPATH
 MANPATH=$(manpath)
 
+HOMEBREW_PREFIX=/usr/local
+
 bindkey -e
 
 # get ec2 instance name
@@ -17,69 +19,25 @@ if [ -x /usr/bin/ec2metadata ]; then
     HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[].Value' --output=text)
 fi
 
+# prompt
 autoload -U colors && colors
-PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%15<...<%~)%{$reset_color%} %(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
-#PROMPT2="more> "
-#PROMPT3="Choice? "
-#PROMPT4="+ "
-RPROMPT='%{$fg[green]%}%~%{$reset_color%}'
-
-
-function title() {
-    # escape '%' chars in $1, make nonprintables visible
-    local a=${(V)1//\%/\%\%}
-
-    # Truncate command, and join lines.
-    a=$(print -Pn "%40>...>$a" | tr -d "\n")
-
-    case $TERM in
-        screen)
-            TERM=screen-256color
-            ;;
-        screen*)
-            print -Pn "\e]2;$a @ $2\a" # plain xterm title
-            print -Pn "\ek$a\e\\"      # screen title (in ^A")
-            print -Pn "\e_$2   \e\\"   # screen location
-            ;;
-        xterm*)
-            print -Pn "\e]2;$a @ $2\a" # plain xterm title
-            ;;
-    esac
+function _aws_default_profile {
+    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
+        echo "%{$fg[red]%}${AWS_DEFAULT_PROFILE}%{$reset_color%} "
+    fi
 }
 
-# precmd is called just before the prompt is printed
-#function precmd() {
-#    title "zsh" "%m:%55<...<%~"
-#}
-
-# preexec is called just before any command line is executed
-#function preexec() {
-#    title "$1" "%m:%35<...<%~"
-#}
+PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%20<...<%~)%{$reset_color%} $(_aws_default_profile)%(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
+RPROMPT='%{$fg[green]%}%~%{$reset_color%}'
 
 source $HOME/.zaliases
 if [ -f $HOME/.ssh_agent ]; then
     source $HOME/.ssh_agent
 fi
 
-function powerline_precmd() {
-    export PS1="$(~/powerline-shell.py $? --shell zsh 2> /dev/null)"
-}
-
-function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}"; do
-        if [ "$s" = "powerline_precmd" ]; then
-            return
-        fi
-    done
-    precmd_functions+=(powerline_precmd)
-}
-
-#        /usr/local/bin/aws_zsh_completer.sh \
 for source in \
-        /usr/share/zsh/vendor-completions/_awscli \
-        /usr/local/share/zsh/site-functions/_aws \
         /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
+        /usr/local/share/zsh/site-functions/_aws
     ; do
     if [ -f "$source" ]; then
         source $source
@@ -99,24 +57,27 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 # add zsh completions idempotentally
 for compl in \
         /usr/local/share/zsh-completions \
+        /usr/local/share/zsh/site-functions \
     ; do
     # Return the index of the searched-for element
     # It will return one greater than the number of elements if not found
-    if [[ ${fpath[(i)${compl}]} -gt ${#fpath} ]]; then
+    if [[ -z ${fpath[(r)${compl}]} ]]; then
         if [[ -d $compl ]]; then
-            tmppath+=$p
-            fpath+=$comp
+            fpath+=$compl
         fi
     fi
 done
 
 # virutalenv
 #if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+ #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # export PYENV_ROOT=/usr/local/var/pyenv
 
-#if [ -x /usr/local/opt/autoenv/activate.sh ]; then
-#    source /usr/local/opt/autoenv/activate.sh
-#fi
-
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
+if ( which direnv > /dev/null ); then
+    eval "$(direnv hook zsh)"
+fi
+
+autoload -Uz compinit
+compinit

@@ -3,6 +3,7 @@
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
+
 # add extra paths completions idempotentally
 for addpath in \
     $HOME/bin \
@@ -10,7 +11,7 @@ for addpath in \
     ; do
     # Return the index of the searched-for element
     # It will return one greater than the number of elements if not found
-    if [[ ${fpath[(i)${addpath}]} -gt ${#fpath} ]]; then
+    if [[ -z ${path[(r)${addpath}]} ]]; then
         if [[ -d $addpath ]]; then
             path+=$addpath
         fi
