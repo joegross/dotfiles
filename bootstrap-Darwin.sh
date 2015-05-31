@@ -13,7 +13,6 @@ killall Dock
 #launchctl start com.apple.cfprefsd.xpc.agent
 
 #brew install pdftex
-brew install zsh
 brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
