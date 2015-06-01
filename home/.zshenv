@@ -7,6 +7,7 @@ export LESS=iMFXR
 # add extra paths completions idempotentally
 for addpath in \
     $HOME/bin \
+    /usr/local/sbin \
     /srv/genops/tools \
     ; do
     # Return the index of the searched-for element
@@ -44,5 +45,5 @@ fi
 
 # nextopio
 export ANDROID_HOME="/usr/local/opt/android-sdk"
-export NEXTOP_DOCKER_GROUP=nextop
+export NEXTOP_DOCKER_GROUP=nextopio
 export NEXTOP_DOCKER_MAINTAINER="ops@nextop.io"
