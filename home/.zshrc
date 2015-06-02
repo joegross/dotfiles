@@ -36,8 +36,9 @@ if [ -f $HOME/.ssh_agent ]; then
 fi
 
 for source in \
-        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-        /usr/local/share/zsh/site-functions/_aws
+    /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
+    /usr/local/share/zsh/site-functions/_aws \
+    /usr/local/bin/aws_zsh_completer.sh
     ; do
     if [ -f "$source" ]; then
         source $source
