@@ -80,4 +80,5 @@ if ( which direnv > /dev/null ); then
 fi
 
 autoload -Uz compinit
-compinit
+compinit -u
+
