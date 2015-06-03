@@ -35,15 +35,6 @@ if [ -f $HOME/.ssh_agent ]; then
     source $HOME/.ssh_agent
 fi
 
-for source in \
-        /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-        /usr/local/share/zsh/site-functions/_aws
-    ; do
-    if [ -f "$source" ]; then
-        source $source
-    fi
-done
-
 # history substring search
 # bind P and N for EMACS mode
 if [ -f /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
@@ -82,3 +73,12 @@ fi
 autoload -Uz compinit
 compinit -u
 
+for source in \
+    /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
+    /usr/local/share/zsh/site-functions/_aws \
+    /usr/local/bin/aws_zsh_completer.sh
+    ; do
+    if [ -f "$source" ]; then
+        source $source
+    fi
+done

@@ -2,4 +2,4 @@
 
 set -e
 
-sudo apt-get install direnv
+sudo apt-get install direnv || true
