@@ -45,20 +45,6 @@ fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-# add zsh completions idempotentally
-for compl in \
-        /usr/local/share/zsh-completions \
-        /usr/local/share/zsh/site-functions \
-    ; do
-    # Return the index of the searched-for element
-    # It will return one greater than the number of elements if not found
-    if [[ -z ${fpath[(r)${compl}]} ]]; then
-        if [[ -d $compl ]]; then
-            fpath+=$compl
-        fi
-    fi
-done
-
 # virutalenv
 #if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
  #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -73,9 +59,24 @@ fi
 autoload -Uz compinit
 compinit -u
 
+test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
+
+# add zsh completions idempotentally
+for compl in \
+        /usr/local/share/zsh-completions \
+        /usr/local/share/zsh/site-functions \
+    ; do
+    # Return the index of the searched-for element
+    # It will return one greater than the number of elements if not found
+    if [[ -z ${fpath[(r)${compl}]} ]]; then
+        if [[ -d $compl ]]; then
+            fpath+=$compl
+        fi
+    fi
+done
+
 for source in \
     /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-    /usr/local/share/zsh/site-functions/_aws \
     ; do
     if [ -f "$source" ]; then
         source $source
