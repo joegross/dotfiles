@@ -12,3 +12,4 @@ srd () {screen -r -d `screen -list|grep pts|awk '{print $1}'`}
 doagent() {ssh-agent -s >! ~/.ssh_agent}
 loadagent() {source ~/.ssh_agent}
 em() {emacsclient -c $*}
+pipup() {for i in $(pip list| awk '{print $1}'); do; pip install --upgrade $i; done}
