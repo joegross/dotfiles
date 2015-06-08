@@ -47,3 +47,7 @@ fi
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 export NEXTOP_DOCKER_GROUP=nextopio
 export NEXTOP_DOCKER_MAINTAINER="ops@nextop.io"
+
+# python/virtualenv
+export PROJECT_HOME="$HOME/Developer"
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'

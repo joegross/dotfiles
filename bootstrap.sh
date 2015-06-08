@@ -36,14 +36,26 @@ if [ -e $settings ] && [ ! -L $settings ]; then
     mv $settings $settings.orig
 fi
 
+# zsh-git-prompt
+OLDPWD=$(pwd)
 mkdir -p $HOME/dev
-DESTDIR=$HOME/dev/zsh-git-prompt
+DESTDIR="$HOME/dev/zsh-git-prompt"
 if [ ! -d $DESTDIR ]; then
     git clone git@github.com:olivierverdier/zsh-git-prompt.git $DESTDIR
 fi
 cd $DESTDIR
 git pull
-popd
+cd $OLDPWD
+
+# zpresto
+OLDPWD=$(pwd)
+DESTDIR="${ZDOTDIR:-$HOME}/.zprezto"
+if [ ! -d $DESTDIR ]; then
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git $DESTDIR
+fi
+cd $DESTDIR
+git pull && git submodule update --init --recursive
+cd $OLDPWD
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 exec ./ostype-$OSTYPE.sh

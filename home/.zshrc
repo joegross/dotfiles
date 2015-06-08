@@ -19,16 +19,41 @@ if [ -x /usr/bin/ec2metadata ]; then
     HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[].Value' --output=text)
 fi
 
-# prompt
 autoload -U colors && colors
-function _aws_default_profile {
-    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
-        echo "%{$fg[red]%}${AWS_DEFAULT_PROFILE}%{$reset_color%} "
+
+# prompt
+[ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
+
+function ps_git_super_status() {
+    if [ -n "$__GIT_PROMPT_DIR" ]; then
+        echo "$(git_super_status) "
     fi
 }
 
-PS1='%{$fg[cyan]%}%m %{$fg[green]%}(%20<...<%~)%{$reset_color%} $(_aws_default_profile)%(?..!%?! )%{$fg[magenta]%}%#%{$reset_color%} '
-RPROMPT='%{$fg[green]%}%~%{$reset_color%}'
+function _aws_default_profile() {
+    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
+        echo "%{$fg[red]%}aws:${AWS_DEFAULT_PROFILE}%{$reset_color%} "
+    fi
+}
+
+function ps_cwd() {
+    echo "%{$fg[green]%}%20<...<%~%{$reset_color%}"
+}
+
+function ps_hostname() {
+    echo "%{$fg[cyan]%}%m%{$reset_color%}"
+}
+
+function ps_retcode() {
+    echo "%(?..!%?! )"
+}
+
+function ps_roothash() {
+    echo "%{$fg[magenta]%}%#%{$reset_color%}"
+}
+
+PS1='$(ps_hostname) $(ps_retcode)$(ps_roothash) '
+RPROMPT='$(ps_git_super_status)$(_aws_default_profile)$(ps_cwd)'
 
 source $HOME/.zaliases
 if [ -f $HOME/.ssh_agent ]; then
@@ -45,10 +70,6 @@ fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-# virutalenv
-#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
- #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-# export PYENV_ROOT=/usr/local/var/pyenv
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
@@ -82,3 +103,12 @@ for source in \
         source $source
     fi
 done
+
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#fi
+
+# virutalenv
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+ #if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# export PYENV_ROOT=/usr/local/var/pyenv
