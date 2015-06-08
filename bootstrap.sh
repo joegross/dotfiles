@@ -8,11 +8,11 @@ git pull origin master
 
 find home -type f -execdir ln -sf $(pwd)/home/{} ~/{} \;
 
-mkdir -p $HOME/.emacs.d
 emacs=$HOME/.emacs
-dotemacs=$(pwd)/.emacs
+dotemacs=$(pwd)/home/.emacs
+
 settings=$HOME/.emacs.d/settings
-dotsettings=$(pwd)/.emacs.d/settings
+dotsettings=$(pwd)/home/.emacs.d/settings
 
 if [ ! -e $emacs ]; then
     ln -s $dotemacs $emacs
@@ -26,7 +26,15 @@ if [ ! -e $settings ]; then
 elif [ ! -L $settings ]; then
     mv $settings $settings.orig
     ln -s $dotsettings $settings
-    fi
+fi
+
+if [ -e $macs ] && [ ! -L $emacs ]; then
+    mv $emacs $emacs.orig
+fi
+
+if [ -e $settings ] && [ ! -L $settings ]; then
+    mv $settings $settings.orig
+fi
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
-exec ./bootstrap-$OSTYPE.sh
+exec ./ostype-$OSTYPE.sh
