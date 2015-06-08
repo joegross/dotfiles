@@ -23,10 +23,12 @@ autoload -U colors && colors
 
 # prompt
 [ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
 
 ps_git_super_status() {
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
-        echo "$(git_super_status) "
+        echo "git:$(git_super_status) "
     fi
 }
 
