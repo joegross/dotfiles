@@ -24,36 +24,42 @@ autoload -U colors && colors
 # prompt
 [ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
 
-function ps_git_super_status() {
-    if [ -n "$__GIT_PROMPT_DIR" ]; then
+ps_git_super_status() {
+    if [ -n "$__CURRENT_GIT_STATUS" ]; then
         echo "$(git_super_status) "
     fi
 }
 
-function _aws_default_profile() {
+ps_aws_default_profile() {
     if [ -n "$AWS_DEFAULT_PROFILE" ]; then
         echo "%{$fg[red]%}aws:${AWS_DEFAULT_PROFILE}%{$reset_color%} "
     fi
 }
 
-function ps_cwd() {
+ps_cwd() {
     echo "%{$fg[green]%}%20<...<%~%{$reset_color%}"
 }
 
-function ps_hostname() {
+ps_hostname() {
     echo "%{$fg[cyan]%}%m%{$reset_color%}"
 }
 
-function ps_retcode() {
+ps_retcode() {
     echo "%(?..!%?! )"
 }
 
-function ps_roothash() {
+ps_roothash() {
     echo "%{$fg[magenta]%}%#%{$reset_color%}"
 }
 
+ps_virtual_env() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        echo "%{$fg[yellow]%}env:$(basename $(dirname $(dirname $VIRTUAL_ENV)))%{$reset_color%} "
+    fi
+}
+
 PS1='$(ps_hostname) $(ps_retcode)$(ps_roothash) '
-RPROMPT='$(ps_git_super_status)$(_aws_default_profile)$(ps_cwd)'
+RPROMPT='$(ps_virtual_env)$(ps_git_super_status)$(ps_aws_default_profile)$(ps_cwd)'
 
 source $HOME/.zaliases
 if [ -f $HOME/.ssh_agent ]; then
@@ -107,6 +113,11 @@ done
 #if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 #    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #fi
+
+# docker
+if [[ -x /usr/local/bin/boot2docker ]]; then
+    $(/usr/local/bin/boot2docker shellinit 2> /dev/null)
+fi
 
 # virutalenv
 #if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

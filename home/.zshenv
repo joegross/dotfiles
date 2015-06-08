@@ -38,16 +38,9 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-# docker
-if [[ -x /usr/local/bin/boot2docker ]]; then
-    $(/usr/local/bin/boot2docker shellinit 2> /dev/null)
-fi
-
 # nextopio
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 export NEXTOP_DOCKER_GROUP=nextopio
 export NEXTOP_DOCKER_MAINTAINER="ops@nextop.io"
 
 # python/virtualenv
-export PROJECT_HOME="$HOME/Developer"
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
