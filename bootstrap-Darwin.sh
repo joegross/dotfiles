@@ -17,3 +17,5 @@ brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
 brew install direnv
+brew install emacs --cocoa --srgb # --with-gnutls
+brew install mercurial
