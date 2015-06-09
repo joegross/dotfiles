@@ -51,7 +51,13 @@ ps_retcode() {
 }
 
 ps_roothash() {
-    echo "%{$fg[magenta]%}%#%{$reset_color%}"
+    # echo "%{$fg[magenta]%}%#%{$reset_color%}"
+    if [[ "$(whoami)" == "root" ]]; then
+        hashmark='🚀"'
+    else
+        hashmark='%%'
+    fi
+    echo "%{$fg[magenta]%}$hashmark%{$reset_color%}"
 }
 
 ps_virtual_env() {
