@@ -4,14 +4,12 @@ OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
 
-# add extra paths completions idempotentally
+# add extra path completions idempotentally
 for addpath in \
     $HOME/bin \
     /usr/local/sbin \
     /srv/genops/tools \
     ; do
-    # Return the index of the searched-for element
-    # It will return one greater than the number of elements if not found
     if [[ -z ${path[(r)${addpath}]} ]]; then
         if [[ -d $addpath ]]; then
             path+=$addpath
