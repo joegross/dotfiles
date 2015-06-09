@@ -2,6 +2,7 @@
 
 set -e
 
+
 base=$(dirname ${BASH_SOURCE})
 cd $base
 git pull origin master
