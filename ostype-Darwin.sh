@@ -19,3 +19,4 @@ brew install zsh-syntax-highlighting
 brew install direnv
 brew install emacs --cocoa --srgb # --with-gnutls
 brew install mercurial
+pip install --upgrade virtualenv

@@ -13,7 +13,8 @@ emacs=$HOME/.emacs
 dotemacs=$(pwd)/home/.emacs
 
 settings=$HOME/.emacs.d/settings
-dotsettings=$(pwd)/home/.emacs.d/settings
+dotsettings=$(pwd)/emacs.d/settings
+mkdir -p $HOME/.emacs.d
 
 if [ ! -e $emacs ]; then
     ln -s $dotemacs $emacs
