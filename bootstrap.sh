@@ -17,17 +17,17 @@ dotsettings=$(pwd)/emacs.d/settings
 mkdir -p $HOME/.emacs.d
 
 if [ ! -e $emacs ]; then
-    ln -s $dotemacs $emacs
+    ln -sf $dotemacs $emacs
 elif [ ! -L $emacs ]; then
     mv $emacs $emacs.orig
-    ln -s $dotemacs $emacs
+    ln -sf $dotemacs $emacs
 fi
 
 if [ ! -e $settings ]; then
-    ln -s $dotsettings $settings
+    ln -sf $dotsettings $settings
 elif [ ! -L $settings ]; then
     mv $settings $settings.orig
-    ln -s $dotsettings $settings
+    ln -sf $dotsettings $settings
 fi
 
 if [ -e $macs ] && [ ! -L $emacs ]; then
