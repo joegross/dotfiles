@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# E211 - Remove extraneous whitespace.
+# E241 - Fix extraneous whitespace around keywords.
+# E261 - Fix spacing after comment hash.
+# E302 - Add missing 2 blank lines.
+# E501 - Try to make lines fit within --max-line-length characters.
+# W391 - Remove trailing blank lines.
+
 pyflakes "$1"
-pep8 --ignore=E221,E241,E261,E302,E501,W391 --repeat "$1"
+pep8 --repeat "$1"
+#pep8 --ignore=E221,E241,E261,E302,E501,W391 --repeat "$1"
 true
