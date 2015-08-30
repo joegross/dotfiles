@@ -21,7 +21,8 @@ fi
 
 autoload -U colors && colors
 
-# prompt
+# zsh-git-prompt
+# https://github.com/olivierverdier/zsh-git-prompt
 [ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
