@@ -84,9 +84,6 @@ fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-
 if ( which direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
