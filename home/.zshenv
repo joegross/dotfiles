@@ -4,6 +4,11 @@ OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
 
+# for osx
+if [ -x /usr/libexec/path_helper ]; then
+    eval $(/usr/libexec/path_helper -s)
+fi
+
 # add extra path completions idempotentally
 for addpath in \
     $HOME/bin \
