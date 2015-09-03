@@ -8,6 +8,7 @@ export LESS=iMFXR
 for addpath in \
     $HOME/bin \
     /usr/local/sbin \
+    /Applications/Sublime\ Text.app/Contents/SharedSupport/bin \
     /srv/genops/tools \
     ; do
     if [[ -z ${path[(r)${addpath}]} ]]; then
