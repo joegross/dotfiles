@@ -13,3 +13,4 @@ doagent() {ssh-agent -s >! ~/.ssh_agent}
 loadagent() {source ~/.ssh_agent}
 em() {emacsclient -c $*}
 pipup() {for i in $(pip list| awk '{print $1}'); do; pip install --upgrade $i; done}
+legwarmer() { stress -i 8 -m 8 -c 8 -d 8 }
