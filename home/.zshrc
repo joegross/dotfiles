@@ -122,8 +122,12 @@ done
 #fi
 
 # docker
-if [[ -x /usr/local/bin/boot2docker ]]; then
-    $(/usr/local/bin/boot2docker shellinit 2> /dev/null)
+#if [ -n "$(which boot2docker)" ]; then
+#    eval $(boot2docker shellinit)
+#fi
+
+if [ -n "$(which docker-machine) )" ]; then
+    eval "$(docker-machine env docker-vm)"
 fi
 
 # pyenv

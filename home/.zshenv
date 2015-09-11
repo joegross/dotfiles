@@ -40,9 +40,3 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-# nextopio
-export ANDROID_HOME="/usr/local/opt/android-sdk"
-export NEXTOP_DOCKER_GROUP=nextopio
-export NEXTOP_DOCKER_MAINTAINER="ops@nextop.io"
-
-# python/virtualenv
