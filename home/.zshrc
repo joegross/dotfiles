@@ -121,13 +121,8 @@ done
 #    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #fi
 
-# docker
-#if [ -n "$(which boot2docker)" ]; then
-#    eval $(boot2docker shellinit)
-#fi
-
 if [ -n "$(which docker-machine) )" ]; then
-    eval "$(docker-machine env docker-vm)"
+    eval "$(docker-machine env default)"
 fi
 
 # pyenv
