@@ -26,3 +26,5 @@ brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
 pip install --upgrade virtualenv pyflakes
+
+./docker-machine-on-boot.sh
