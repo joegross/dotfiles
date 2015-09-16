@@ -7,6 +7,7 @@ export LESS=iMFXR
 # add extra path completions idempotentally
 for addpath in \
     $HOME/bin \
+    $HOME/.pyenv/shims \
     /usr/local/sbin \
     /Applications/Sublime\ Text.app/Contents/SharedSupport/bin \
     /srv/genops/tools \
