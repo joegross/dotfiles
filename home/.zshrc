@@ -93,6 +93,7 @@ autoload -Uz compinit
 compinit -u
 
 test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
+test -f /usr/share/zsh/vendor-completions/_awscli && source /usr/share/zsh/vendor-completions/_awscli
 #test -f /usr/local/bin/aws_zsh_completer.sh && source /usr/local/bin/aws_zsh_completer.sh
 
 # add zsh completions idempotentally
