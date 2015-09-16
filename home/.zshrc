@@ -63,7 +63,7 @@ ps_roothash() {
 
 ps_virtual_env() {
     if [ -n "$VIRTUAL_ENV" ]; then
-        echo "%{$fg[yellow]%}env:$(basename $(dirname $(dirname $VIRTUAL_ENV)))%{$reset_color%} "
+        echo "%{$fg[yellow]%}env:$(basename $VIRTUAL_ENV)%{$reset_color%} "
     fi
 }
 
@@ -130,5 +130,5 @@ fi
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 # export PYENV_ROOT=/usr/local/var/pyenv
