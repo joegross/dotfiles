@@ -121,7 +121,8 @@ done
 #    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #fi
 
-if [ -n "$(which docker-machine) )" ]; then
+# find contents of first column of table if first colunn is a link
+if which docker-machine > /dev/null; then
     eval "$(docker-machine env default)"
 fi
 
