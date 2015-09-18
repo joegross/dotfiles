@@ -12,6 +12,16 @@ HOMEBREW_PREFIX=/usr/local
 
 bindkey -e
 
+# hub: git wrapper
+# This has to go early since everything is terrible
+# https://github.com/github/hub/issues/231
+if which hub > /dev/null; then
+    eval "$(hub alias -s)"
+    if [[ -z ${fpath[(r)/usr/local/share/zsh/site-functions]} ]]; then
+        fpath+=/usr/local/share/zsh/site-functions
+    fi
+fi
+
 # get ec2 instance name
 if [ -x /usr/bin/ec2metadata ]; then
     export AWS_DEFAULT_REGION=$(ec2metadata  --availability-zone | sed 's/\([0-9][0-9]*\)[a-z]*$/\1/')
