@@ -15,6 +15,11 @@ fi
 #cp osx/home/Library/Preferences/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist
 #launchctl start com.apple.cfprefsd.xpc.agent
 
+# shut up safari
+efaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
+defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
+defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
+
 #brew install pdftex
 brew install emacs --cocoa --srgb # --with-gnutls
 brew install direnv
