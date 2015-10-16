@@ -16,7 +16,7 @@ fi
 #launchctl start com.apple.cfprefsd.xpc.agent
 
 # shut up safari
-efaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
+defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
@@ -30,6 +30,11 @@ brew install pyenv-virtualenvwrapper
 brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
+brew install brew-cask
+brew cask install haskell-platform
 pip install --upgrade virtualenv pyflakes
+
+cd $HOME/dev/zsh-git-prompt
+cabal build
 
 ./docker-machine-on-boot.sh

@@ -36,6 +36,7 @@ autoload -U colors && colors
 [ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
+[ -f $__GIT_PROMPT_DIR/dist/build/gitstatus/gitstatus ] && GIT_PROMPT_EXECUTABLE="haskell"
 
 ps_git_super_status() {
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
@@ -74,6 +75,11 @@ ps_roothash() {
 ps_virtual_env() {
     if [ -n "$VIRTUAL_ENV" ]; then
         echo "%{$fg[yellow]%}env:$(basename $VIRTUAL_ENV)%{$reset_color%} "
+    else
+        PYENV_LOCAL=$(pyenv local 2> /dev/null | head -1)
+        if [ -n "$PYENV_LOCAL" ]; then
+            echo "%{$fg[yellow]%}env:$PYENV_LOCAL%{$reset_color%} "
+        fi
     fi
 }
 
@@ -132,7 +138,6 @@ done
 #    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #fi
 
-# find contents of first column of table if first colunn is a link
 if which docker-machine > /dev/null; then
     eval "$(docker-machine env default)"
 fi

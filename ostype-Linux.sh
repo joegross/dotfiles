@@ -3,4 +3,4 @@
 set -e
 
 sudo apt-get install direnv || true
-sudo apt-get install -y make texinfo mercurial pychecker
+sudo apt-get install -y make texinfo mercurial pychecker haskell-platform
