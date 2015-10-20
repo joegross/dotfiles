@@ -31,6 +31,10 @@ fi
 
 autoload -U colors && colors
 
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
 # zsh-git-prompt
 # https://github.com/olivierverdier/zsh-git-prompt
 [ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
@@ -105,12 +109,14 @@ if ( which direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
 
-autoload -Uz compinit
-compinit -u
+# autoload -Uz compinit
+# compinit -u
 
-test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
-test -f /usr/share/zsh/vendor-completions/_awscli && source /usr/share/zsh/vendor-completions/_awscli
-#test -f /usr/local/bin/aws_zsh_completer.sh && source /usr/local/bin/aws_zsh_completer.sh
+if [ "$USER" != "root" ]; then
+  test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
+  test -f /usr/share/zsh/vendor-completions/_awscli && source /usr/share/zsh/vendor-completions/_awscli
+  #test -f /usr/local/bin/aws_zsh_completer.sh && source /usr/local/bin/aws_zsh_completer.sh
+fi
 
 # add zsh completions idempotentally
 for compl in \
@@ -138,7 +144,7 @@ done
 #    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 #fi
 
-if which docker-machine > /dev/null; then
+if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
     eval "$(docker-machine env default)"
 fi
 
