@@ -34,7 +34,7 @@ brew install brew-cask
 brew cask install haskell-platform
 pip install --upgrade virtualenv pyflakes
 
-cd $HOME/dev/zsh-git-prompt
-cabal build
-
 ./docker-machine-on-boot.sh
+
+(cd $HOME/dev/zsh-git-prompt && cabal build)
+
