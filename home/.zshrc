@@ -49,8 +49,8 @@ ps_git_super_status() {
 }
 
 ps_aws_default_profile() {
-    if [ -n "$AWS_DEFAULT_PROFILE" ]; then
-        echo "%{$fg[red]%}aws:${AWS_DEFAULT_PROFILE}%{$reset_color%} "
+    if [ -n "$AWS_PROFILE" ]; then
+        echo "%{$fg[red]%}aws:${AWS_PROFILE}%{$reset_color%} "
     fi
 }
 
@@ -82,7 +82,7 @@ ps_virtual_env() {
     else
         PYENV_LOCAL=$(pyenv local 2> /dev/null | head -1)
         if [ -n "$PYENV_LOCAL" ]; then
-            echo "%{$fg[yellow]%}env:$PYENV_LOCAL%{$reset_color%} "
+            echo "%{$fg[yellow]%}pyenv:$PYENV_LOCAL%{$reset_color%} "
         fi
     fi
 }
