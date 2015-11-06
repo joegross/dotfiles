@@ -31,9 +31,9 @@ fi
 
 autoload -U colors && colors
 
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/help
+# unalias run-help
+# autoload run-help
+# HELPDIR=/usr/local/share/zsh/help
 
 # zsh-git-prompt
 # https://github.com/olivierverdier/zsh-git-prompt
