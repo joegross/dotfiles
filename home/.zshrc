@@ -154,4 +154,3 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
-

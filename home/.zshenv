@@ -17,9 +17,15 @@ for addpath in \
         fi
     fi
 done
+
 if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
 fi
+
+if [[ -f ~/.atlas_token ]]; then
+    export ATLAS_TOKEN=$(cat $HOME/.atlas_token)
+fi
+
 # less colors
 export LESSCHARSET='UTF-8'
 export LESS_TERMCAP_mb=$'\e[01;32m'
