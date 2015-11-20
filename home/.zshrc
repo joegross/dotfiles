@@ -109,15 +109,11 @@ if ( which direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
 
-# The following lines were added by compinstall
-
 zstyle :compinstall filename '$HOME/.zshrc'
-
 autoload -Uz compinit
-compinit
-# End of lines added by compinstall
 
 if [ "$USER" != "root" ]; then
+  compinit
   test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
   test -f /usr/share/zsh/vendor-completions/_awscli && source /usr/share/zsh/vendor-completions/_awscli
   #test -f /usr/local/bin/aws_zsh_completer.sh && source /usr/local/bin/aws_zsh_completer.sh
