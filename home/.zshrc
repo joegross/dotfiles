@@ -109,8 +109,13 @@ if ( which direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
 
-# autoload -Uz compinit
-# compinit -u
+# The following lines were added by compinstall
+
+zstyle :compinstall filename '$HOME/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 if [ "$USER" != "root" ]; then
   test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
@@ -154,3 +159,9 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+
+
