@@ -32,6 +32,7 @@ brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
 brew install brew-cask
 brew install caskroom/cask/brew-cask
+brew install graphviz
 brew cask install haskell-platform
 pip install --upgrade virtualenv pyflakes
 
