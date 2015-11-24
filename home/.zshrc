@@ -146,7 +146,7 @@ done
 #fi
 
 if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
-    eval "$(docker-machine env default)"
+    eval "$(docker-machine env default >| /dev/null 2>&1)"
 fi
 
 # pyenv
