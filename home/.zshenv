@@ -7,7 +7,6 @@ export LESS=iMFXR
 # add extra path completions idempotentally
 for addpath in \
     $HOME/bin \
-    $HOME/.pyenv/shims \
     /usr/local/sbin \
     /srv/genops/tools \
     ; do
