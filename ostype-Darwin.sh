@@ -33,6 +33,7 @@ brew install zsh-syntax-highlighting
 brew install brew-cask
 brew install caskroom/cask/brew-cask
 brew install graphviz
+brew install rbenv
 brew cask install haskell-platform
 pip install --upgrade virtualenv pyflakes
 

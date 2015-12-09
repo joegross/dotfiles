@@ -146,7 +146,7 @@ done
 #fi
 
 if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
-    eval "$(docker-machine env default >| /dev/null 2>&1)"
+    eval "$(docker-machine env default)"
 fi
 
 # pyenv
@@ -159,5 +159,5 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-
-
+# ruby
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
