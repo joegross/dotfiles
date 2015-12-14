@@ -24,6 +24,7 @@ defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecomm
 brew install emacs --cocoa --srgb # --with-gnutls
 brew install direnv
 brew install mercurial
+brew install python
 brew install pyenv
 brew install pyenv-virtualenv
 brew install pyenv-virtualenvwrapper
@@ -35,7 +36,12 @@ brew install caskroom/cask/brew-cask
 brew install graphviz
 brew install rbenv
 brew cask install haskell-platform
-pip install --upgrade virtualenv pyflakes
+
+#pip install --upgrade virtualenv pyflakes
+
+pip install --upgrade pip-tools
+
+pip-sync requirements.txt
 
 ./docker-machine-on-boot.sh
 
