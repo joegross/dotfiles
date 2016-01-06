@@ -47,14 +47,14 @@ git pull
 cd $OLDPWD
 
 # zpresto
-OLDPWD=$(pwd)
-DESTDIR="${ZDOTDIR:-$HOME}/.zprezto"
-if [ ! -d $DESTDIR ]; then
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git $DESTDIR
-fi
-cd $DESTDIR
-git pull && git submodule update --init --recursive
-cd $OLDPWD
+#OLDPWD=$(pwd)
+#DESTDIR="${ZDOTDIR:-$HOME}/.zprezto"
+#if [ ! -d $DESTDIR ]; then
+#    git clone --recursive https://github.com/sorin-ionescu/prezto.git $DESTDIR
+#fi
+#cd $DESTDIR
+#git pull && git submodule update --init --recursive
+#cd $OLDPWD
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 exec ./ostype-$OSTYPE.sh

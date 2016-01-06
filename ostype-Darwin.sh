@@ -31,7 +31,6 @@ brew install pyenv-virtualenvwrapper
 brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
-brew install caskroom/cask/brew-cask
 brew install graphviz
 brew install rbenv
 brew install git-subrepo
@@ -41,7 +40,7 @@ brew cask install haskell-platform
 
 pip install --upgrade pip-tools
 
-pip-sync requirements.txt
+#pip-sync requirements.txt
 
 ./docker-machine-on-boot.sh
 
