@@ -161,3 +161,6 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by travis gem
+[ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
