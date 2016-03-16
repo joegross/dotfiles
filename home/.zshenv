@@ -1,6 +1,5 @@
 # .zshenv
 
-OSTYPE=$(uname -s |sed -e 's/GNU\///')
 export EDITOR=emacs
 export LESS=iMFXR
 
@@ -45,4 +44,4 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-GOPATH=$HOME/gocode
+export GOPATH=$HOME/gocode

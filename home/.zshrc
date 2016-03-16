@@ -10,7 +10,7 @@ MANPATH=$(manpath)
 
 HOMEBREW_PREFIX=/usr/local
 
-bindkey -e
+# bindkey -e
 
 # hub: git wrapper
 # This has to go early since everything is terrible
