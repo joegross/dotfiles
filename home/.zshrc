@@ -164,3 +164,11 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # added by travis gem
 [ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
+
+# GPG agent
+[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+  export GPG_AGENT_INFO
+else
+  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+fi
