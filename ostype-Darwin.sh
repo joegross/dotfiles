@@ -34,6 +34,7 @@ brew install zsh-syntax-highlighting
 brew install graphviz
 brew install rbenv
 brew install git-subrepo
+brew install pass
 brew cask install haskell-platform
 
 #pip install --upgrade virtualenv pyflakes
