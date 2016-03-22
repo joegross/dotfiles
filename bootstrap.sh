@@ -46,6 +46,17 @@ cd $DESTDIR
 git pull
 cd $OLDPWD
 
+OLDPWD=$(pwd)
+mkdir -p $HOME/dev
+DESTDIR="$HOME/dev/password-store"
+if [ ! -d $DESTDIR ]; then
+    git clone https://git.zx2c4.com/password-store $DESTDIR
+fi
+cd $DESTDIR
+git pull
+cd $OLDPWD
+
+
 # zpresto
 #OLDPWD=$(pwd)
 #DESTDIR="${ZDOTDIR:-$HOME}/.zprezto"

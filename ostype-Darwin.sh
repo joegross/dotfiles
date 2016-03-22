@@ -44,5 +44,9 @@ pip install --upgrade pip-tools
 
 ./docker-machine-on-boot.sh
 
-(cd $HOME/dev/zsh-git-prompt && cabal build)
+cd $HOME/dev/zsh-git-prompt
+stack setup
+stack build
+stack install
+
 
