@@ -20,31 +20,42 @@ defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YE
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
-#brew install pdftex
+BREW_PACKAGES=(
+  direnv
+  git-subrepo
+  graphviz
+  mercurial
+  pass
+  pyenv
+  pyenv-virtualenv
+  pyenv-virtualenvwrapper
+  python
+  rbenv
+  zsh-completions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
+)
+for package in ${BREW_PACKAGES[@]}; do
+  brew install $package
+done
+
 brew install emacs --cocoa --srgb # --with-gnutls
-brew install direnv
-brew install mercurial
-brew install python
-brew install pyenv
-brew install pyenv-virtualenv
-brew install pyenv-virtualenvwrapper
-brew install zsh-completions
-brew install zsh-history-substring-search
-brew install zsh-syntax-highlighting
-brew install graphviz
-brew install rbenv
-brew install git-subrepo
-brew install pass
 brew cask install haskell-platform
 
-#pip install --upgrade virtualenv pyflakes
+PIP_PACKAGES=(
+  pip
+  boto
+  pip-tools
+  python-magic
+)
 
-pip install --upgrade pip-tools
-
-#pip-sync requirements.txt
+for package in ${PIP_PACKAGES[@]}; do
+  pip install --upgrade $package
+done
 
 ./docker-machine-on-boot.sh
 
+# zsh-git-prompt (haskell)
 cd $HOME/dev/zsh-git-prompt
 stack setup
 stack build
