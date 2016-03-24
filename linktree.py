@@ -8,7 +8,6 @@ os.chdir('home')
 cwd = os.getcwd()
 
 for root, _, files in os.walk('.'):
-    print root
     sourcedir = os.path.join(homedir, root)
     if not os.path.isdir(sourcedir):
         if os.path.islink(sourcedir):
@@ -20,4 +19,5 @@ for root, _, files in os.walk('.'):
         source = os.path.normpath(os.path.join(cwd, root, f))
         target = os.path.normpath(os.path.join(homedir, root, f))
         if not os.path.islink(target):
+            print "linking: %s -> %s" % (target, source)
             os.symlink(source, target)
