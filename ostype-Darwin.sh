@@ -23,6 +23,7 @@ defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecomm
 BREW_PACKAGES=(
   direnv
   git-subrepo
+  gpg-agent
   graphviz
   mercurial
   pass
