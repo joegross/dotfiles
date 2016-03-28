@@ -40,6 +40,9 @@ for package in ${BREW_PACKAGES[@]}; do
   brew install $package
 done
 
+# iterm shell integration
+curl -sL https://iterm2.com/misc/zsh_startup.in > $HOME/.iterm2_shell_integration.zsh
+
 brew install emacs --cocoa --srgb # --with-gnutls
 brew cask install haskell-platform
 
