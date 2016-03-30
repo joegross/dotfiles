@@ -173,6 +173,10 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
 else
   eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
 fi
+export GPG_TTY=$(tty)
+
+# zpretzo
+# [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
 # iterm3 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

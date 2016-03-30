@@ -11,24 +11,17 @@ function fetch_github {
   mkdir -p $HOME/dev
   DESTDIR="$HOME/dev/$REPODIR"
   if [ ! -d $DESTDIR ]; then
-      git clone $REPO $DESTDIR
+      git clone --recursive $REPO $DESTDIR
   fi
   cd $DESTDIR
-  git pull
+  git pull && git submodule update --init --recursive
   cd $OLDPWD
 }
 
 fetch_github git@github.com:olivierverdier/zsh-git-prompt.git
 
-# zpresto
-#OLDPWD=$(pwd)
-#DESTDIR="${ZDOTDIR:-$HOME}/.zprezto"
-#if [ ! -d $DESTDIR ]; then
-#    git clone --recursive https://github.com/sorin-ionescu/prezto.git $DESTDIR
-#fi
-#cd $DESTDIR
-#git pull && git submodule update --init --recursive
-#cd $OLDPWD
+# fetch_github git@github.com:sorin-ionescu/prezto.git
+# test ! -L $HOME/.zprezto && ln -sf $HOME/dev/prezto $HOME/.zprezto
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 exec ./ostype-$OSTYPE.sh
