@@ -25,3 +25,4 @@ fetch_github git@github.com:olivierverdier/zsh-git-prompt.git
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 exec ./ostype-$OSTYPE.sh
+

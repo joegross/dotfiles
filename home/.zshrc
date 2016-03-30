@@ -41,7 +41,7 @@ autoload -U colors && colors
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_CACHE=true
-[ -f $__GIT_PROMPT_DIR/dist/build/gitstatus/gitstatus ] && GIT_PROMPT_EXECUTABLE="haskell"
+[ -f $__GIT_PROMPT_DIR/src/.bin/gitstatus ] && GIT_PROMPT_EXECUTABLE="haskell"
 
 ps_git_super_status() {
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
