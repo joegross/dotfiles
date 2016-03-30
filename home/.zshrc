@@ -136,6 +136,7 @@ done
 
 for source in \
     /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
+    /usr/local/share/zsh/site-functions/git-flow-completion.zsh \
     ; do
     if [ -f "$source" ]; then
         source $source
@@ -167,13 +168,15 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
 
 # GPG agent
-[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
-if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-  export GPG_AGENT_INFO
-else
-  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+if which gpg-agent > /dev/null; then
+  [ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+  if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+    export GPG_AGENT_INFO
+  else
+    eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+  fi
+  export GPG_TTY=$(tty)
 fi
-export GPG_TTY=$(tty)
 
 # zpretzo
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
