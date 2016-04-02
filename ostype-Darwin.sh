@@ -21,6 +21,7 @@ defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificatio
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
 BREW_PACKAGES=(
+  coreutils
   direnv
   git-subrepo
   gpg-agent

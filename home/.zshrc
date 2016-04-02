@@ -167,13 +167,31 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # added by travis gem
 [ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
 
+function start_gpg_agent {
+  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+}
+
 # GPG agent
+GPG_AGENT_FILE="$HOME/.gpg-agent-info"
+function start_gpg_agent {
+  gpg-agent --daemon --write-env-file $GPG_AGENT_FILE
+}
 if which gpg-agent > /dev/null; then
-  [ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
-  if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-    export GPG_AGENT_INFO
+  # start agent if there's no agent file
+  if [ ! -f $GPG_AGENT_FILE ]; then
+    eval $( start_gpg_agent )
   else
-    eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+    # check agent works
+    source $GPG_AGENT_FILE
+    SOCKET=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 1)
+    # PID=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 2)
+    # check agent connection
+    if ( ! nc -U $SOCKET < /dev/null | grep -q "OK Pleased to meet you" ); then
+      # # try to kill any existing agent
+      # PID=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 1)
+      # kill $pid
+      eval $( start_gpg_agent )
+    fi
   fi
   export GPG_TTY=$(tty)
 fi
