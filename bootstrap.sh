@@ -4,7 +4,7 @@ base=$(dirname ${BASH_SOURCE})
 cd $base
 git pull origin master
 
-function fetch_github {
+function fetch_git {
   REPO=$1
   REPODIR=$(echo $REPO | sed 's/.*\/\(.*\)\.git$/\1/')
   OLDPWD=$(pwd)
@@ -18,10 +18,12 @@ function fetch_github {
   cd $OLDPWD
 }
 
-fetch_github git@github.com:olivierverdier/zsh-git-prompt.git
+fetch_git git@github.com:olivierverdier/zsh-git-prompt.git
 
 # fetch_github git@github.com:sorin-ionescu/prezto.git
 # test ! -L $HOME/.zprezto && ln -sf $HOME/dev/prezto $HOME/.zprezto
+
+./linktree.py
 
 OSTYPE=$(uname -s |sed -e 's/GNU\///')
 exec ./ostype-$OSTYPE.sh

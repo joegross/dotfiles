@@ -1,5 +1,13 @@
 #!/bin/bash
 
-sudo apt-get install direnv || true
-sudo apt-get install -y make texinfo mercurial pychecker haskell-platform haskell-stack
+PACKAGES=(
+  direnv
+  haskell-platform
+  haskell-stack
+  make
+  mercurial
+  pychecker
+  texinfo
+)
 
+sudo apt-get install -y ${PACKAGES[@]}

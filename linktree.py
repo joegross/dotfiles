@@ -1,23 +1,38 @@
 #!/usr/bin/env python
 
+import argparse
+import logging
 import os
 import os.path
 
-homedir = os.getenv('HOME')
-os.chdir('home')
-cwd = os.getcwd()
+logger = logging.getLogger(__name__)
 
-for root, _, files in os.walk('.'):
-    sourcedir = os.path.join(homedir, root)
-    if not os.path.isdir(sourcedir):
-        if os.path.islink(sourcedir):
+
+# Create symlink tree of dotfiles
+# Handles subdirectories
+def linktree():
+    homedir = os.getenv('HOME')
+    os.chdir('home')
+    cwd = os.getcwd()
+
+    for root, _, files in os.walk('.'):
+        sourcedir = os.path.join(homedir, root)
+        logger.debug(sourcedir)
+        if not os.path.isdir(sourcedir):
             os.remove(sourcedir)
-        if os.path.isdir(sourcedir):
-            os.rmdir(sourcedir)
-        os.mkdir(sourcedir)
-    for f in files:
-        source = os.path.normpath(os.path.join(cwd, root, f))
-        target = os.path.normpath(os.path.join(homedir, root, f))
-        if not os.path.islink(target):
-            print "linking: %s -> %s" % (target, source)
-            os.symlink(source, target)
+            os.mkdir(sourcedir)
+        for f in files:
+            source = os.path.normpath(os.path.join(cwd, root, f))
+            target = os.path.normpath(os.path.join(homedir, root, f))
+            if not os.path.islink(target):
+                logger.info("linking: %s -> %s" % (target, source))
+                os.symlink(source, target)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-v', dest='loglevel', action='store_const',
+                        const=logging.DEBUG, default=logging.INFO)
+    args = parser.parse_args()
+    logging.basicConfig()
+    logger.setLevel(args.loglevel)
+    linktree()

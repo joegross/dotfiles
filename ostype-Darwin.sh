@@ -23,6 +23,9 @@ defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecomm
 BREW_PACKAGES=(
   coreutils
   direnv
+  docker
+  docker-compose
+  docker-machine
   git-subrepo
   gpg-agent
   graphviz
@@ -37,30 +40,27 @@ BREW_PACKAGES=(
   zsh-history-substring-search
   zsh-syntax-highlighting
 )
-for package in ${BREW_PACKAGES[@]}; do
-  brew install $package
-done
+brew install ${BREW_PACKAGES[@]}
 
 # iterm shell integration
-curl -sL https://iterm2.com/misc/zsh_startup.in > $HOME/.iterm2_shell_integration.zsh
+curl -sL https://iterm2.com/misc/zsh_startup.in -o $HOME/.iterm2_shell_integration.zsh
 
 brew install emacs --cocoa --srgb # --with-gnutls
 brew cask install haskell-platform
 
 PIP_PACKAGES=(
+  autopep8
   pip
   boto
   pip-tools
   python-magic
 )
-
-for package in ${PIP_PACKAGES[@]}; do
-  pip install --upgrade $package
-done
+pip install --upgrade ${PIP_PACKAGES[@]}
 
 ./docker-machine-on-boot.sh
 
-# zsh-git-prompt (haskell)
+# zsh-git-prompt
+# compile gitstatus (haskell)
 cd $HOME/dev/zsh-git-prompt
 stack setup
 stack build
