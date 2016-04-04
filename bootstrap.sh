@@ -25,6 +25,6 @@ fetch_git git@github.com:olivierverdier/zsh-git-prompt.git
 
 ./linktree.py
 
-OSTYPE=$(uname -s |sed -e 's/GNU\///')
-exec ./ostype-$OSTYPE.sh
+OS=$(uname -s)
+exec ./ostype-$OS.sh
 
