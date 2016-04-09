@@ -28,14 +28,7 @@ curl -sL https://iterm2.com/misc/zsh_startup.in -o $HOME/.iterm2_shell_integrati
 
 brew cask install $(cat brew-cask-packages.txt)
 
-PIP_PACKAGES=(
-  autopep8
-  pip
-  boto
-  pip-tools
-  python-magic
-)
-pip install --upgrade ${PIP_PACKAGES[@]}
+pip install --upgrade -r requirements.txt
 
 ./docker-machine-on-boot.sh
 

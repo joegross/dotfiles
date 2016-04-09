@@ -1,0 +1,5 @@
+autopep8
+pip
+boto
+pip-tools
+python-magic
