@@ -1,0 +1,3 @@
+# local direnv config
+# https://github.com/direnv/direnv
+.envrc

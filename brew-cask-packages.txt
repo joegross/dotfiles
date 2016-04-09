@@ -1,0 +1,9 @@
+atom
+haskell-platform
+libreoffice
+ngrok
+transmission
+vagrant
+virtualbox
+wireshark
+xquartz

@@ -20,33 +20,13 @@ defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YE
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
-BREW_PACKAGES=(
-  coreutils
-  direnv
-  docker
-  docker-compose
-  docker-machine
-  git-subrepo
-  gpg-agent
-  graphviz
-  mercurial
-  pass
-  pyenv
-  pyenv-virtualenv
-  pyenv-virtualenvwrapper
-  python
-  rbenv
-  zsh-completions
-  zsh-history-substring-search
-  zsh-syntax-highlighting
-)
-brew install ${BREW_PACKAGES[@]}
+brew install $(cat brew-packages.txt)
+brew install emacs --cocoa --srgb # --with-gnutls
 
 # iterm shell integration
 curl -sL https://iterm2.com/misc/zsh_startup.in -o $HOME/.iterm2_shell_integration.zsh
 
-brew install emacs --cocoa --srgb # --with-gnutls
-brew cask install haskell-platform
+brew cask install $(cat brew-cask-packages.txt)
 
 PIP_PACKAGES=(
   autopep8
@@ -65,5 +45,3 @@ cd $HOME/dev/zsh-git-prompt
 stack setup
 stack build
 stack install
-
-

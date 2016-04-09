@@ -111,7 +111,8 @@ if ( which direnv > /dev/null ); then
 fi
 
 zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
+autoload -Uz compinit && compinit -i
+
 
 if [ "$USER" != "root" ]; then
   compinit
@@ -133,6 +134,8 @@ for compl in \
         fi
     fi
 done
+
+autoload -Uz compinit && compinit -i
 
 for source in \
     /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
@@ -200,4 +203,4 @@ fi
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
 # iterm3 shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
