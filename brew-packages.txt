@@ -12,6 +12,7 @@ gnutls
 go
 gpg-agent
 graphviz
+haskell-stack
 heroku-toolbelt
 htop
 hub
