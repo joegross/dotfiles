@@ -25,6 +25,8 @@ def linktree():
             source = os.path.normpath(os.path.join(cwd, root, f))
             target = os.path.normpath(os.path.join(homedir, root, f))
             if not os.path.islink(target):
+                if os.path.isfile(target):
+                    os.remove(target)
                 logger.info("linking: %s -> %s" % (target, source))
                 os.symlink(source, target)
 

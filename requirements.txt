@@ -2,4 +2,5 @@ autopep8
 pip
 boto
 pip-tools
+pydocstyle
 python-magic
