@@ -146,10 +146,6 @@ for source in \
     fi
 done
 
-#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-#fi
-
 if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
     eval "$(docker-machine env dev 2> /dev/null)"
 fi
@@ -187,12 +183,8 @@ if which gpg-agent > /dev/null; then
     # check agent works
     source $GPG_AGENT_FILE
     SOCKET=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 1)
-    # PID=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 2)
     # check agent connection
     if ( ! nc -U $SOCKET < /dev/null | grep -q "OK Pleased to meet you" ); then
-      # # try to kill any existing agent
-      # PID=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 1)
-      # kill $pid
       eval $( start_gpg_agent )
     fi
   fi
