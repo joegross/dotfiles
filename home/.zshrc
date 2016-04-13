@@ -168,8 +168,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # GPG agent
 GPG_AGENT_FILE="$HOME/.gpg-agent-info"
+if [[ $(uname -s) == "Darwin" ]]; then
+  PINENTRY=/usr/local/bin/pinentry-mac
+else
+  PINENTRY=/usr/local/bin/pinentrc
+fi
 function start_gpg_agent {
-  gpg-agent --daemon --write-env-file $GPG_AGENT_FILE
+  gpg-agent --daemon --write-env-file $GPG_AGENT_FILE --pinentry-program $PINENTRY
 }
 if which gpg-agent > /dev/null; then
   # start agent if there's no agent file

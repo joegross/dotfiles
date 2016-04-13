@@ -28,6 +28,7 @@ nmap
 packer
 parallel
 pass
+pinentry-mac
 pstree
 pyenv
 pyenv-ccache
