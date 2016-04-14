@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import errno
 import logging
 import os
 import os.path
@@ -19,7 +20,11 @@ def linktree():
         sourcedir = os.path.join(homedir, root)
         logger.debug(sourcedir)
         if not os.path.isdir(sourcedir):
-            os.remove(sourcedir)
+            try:
+                os.remove(sourcedir)
+            except OSError as e:
+                if not e.errno == errno.ENOENT:
+                    raise e
             os.mkdir(sourcedir)
         for f in files:
             source = os.path.normpath(os.path.join(cwd, root, f))
