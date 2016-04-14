@@ -7,5 +7,7 @@
 	ui = auto
 [rebase]
 	autoStash = true
+	autosquash = true
+	stat = true
 [pull]
 	rebase = true
