@@ -6,6 +6,8 @@ direnv
 docker
 docker-compose
 docker-machine
+ffmpeg
+gifsicle
 git-subrepo
 gnupg
 gnutls
@@ -45,6 +47,7 @@ socat
 stress
 terraform
 the_silver_searcher
+tmux
 tree
 watch
 zsh
