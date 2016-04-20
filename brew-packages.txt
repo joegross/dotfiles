@@ -1,4 +1,6 @@
 android-sdk
+autoconf
+automake
 awscli
 brew-gem
 coreutils
@@ -24,6 +26,7 @@ iperf3
 jq
 keybase
 lastpass-cli
+libtool
 mercurial
 mtr
 nmap

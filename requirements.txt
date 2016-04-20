@@ -1,6 +1,8 @@
 autopep8
+jq
 pip
 boto
 pip-tools
 pydocstyle
 python-magic
+requests

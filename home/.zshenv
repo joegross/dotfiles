@@ -8,6 +8,7 @@ for addpath in \
     $HOME/bin \
     /usr/local/sbin \
     /srv/genops/tools \
+    /Applications/Sublime\ Text.app/Contents/SharedSupport/bin \
     ; do
     if [[ -z ${path[(r)${addpath}]} ]]; then
         if [[ -d $addpath ]]; then
