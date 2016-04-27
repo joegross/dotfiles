@@ -20,6 +20,7 @@ done
 if [[ -f ~/.github_token ]]; then
     export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
 fi
+export HOMEBREW_NO_ANALYTICS=1
 
 if [[ -f ~/.atlas_token ]]; then
     export ATLAS_TOKEN=$(cat $HOME/.atlas_token)
@@ -36,7 +37,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;31m'
 #export LESS_TERMCAP_us=$'\E[01;32m'
 # grep colors
-export GREP_OPTIONS='--color=auto'
+export GREP_COLOR=auto
 # ls colors
 export CLICOLOR=yes
 export CLICOLOR_FORCE=yes
