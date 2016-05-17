@@ -3,11 +3,9 @@ autoconf
 automake
 awscli
 brew-gem
+carthage
 coreutils
 direnv
-docker
-docker-compose
-docker-machine
 ffmpeg
 gifsicle
 git-subrepo
@@ -22,6 +20,8 @@ htop
 hub
 imagemagick
 ipcalc
+ipv6calc
+ipv6toolkit
 iperf3
 jq
 keybase
@@ -46,7 +46,9 @@ python3
 rbenv
 ruby
 ruby-build
+sift
 socat
+sslcan
 stress
 terraform
 the_silver_searcher

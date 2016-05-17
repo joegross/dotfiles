@@ -1,3 +1,4 @@
+# shellcheck source=/dev/null
 source $HOME/.zoptions
 
 READNULLCMD=less
@@ -24,9 +25,10 @@ fi
 
 # get ec2 instance name
 if [ -x /usr/bin/ec2metadata ]; then
-    export AWS_DEFAULT_REGION=$(ec2metadata  --availability-zone | sed 's/\([0-9][0-9]*\)[a-z]*$/\1/')
-    instance=$(ec2metadata --instance-id)
-    HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values=$instance --query 'Tags[].Value' --output=text)
+  export AWS_DEFAULT_REGION
+  AWS_DEFAULT_REGION=$(ec2metadata  --availability-zone | sed 's/\([0-9][0-9]*\)[a-z]*$/\1/')
+  instance=$(ec2metadata --instance-id)
+  HOST=$(aws ec2 describe-tags --filters Name=resource-id,Values="$instance" --query 'Tags[].Value' --output=text)
 fi
 
 autoload -U colors && colors
@@ -37,11 +39,11 @@ autoload -U colors && colors
 
 # zsh-git-prompt
 # https://github.com/olivierverdier/zsh-git-prompt
-[ -f $HOME/dev/zsh-git-prompt/zshrc.sh ] && source $HOME/dev/zsh-git-prompt/zshrc.sh
+[ -f "$HOME/dev/zsh-git-prompt/zshrc.sh" ] && source "$HOME/dev/zsh-git-prompt/zshrc.sh"
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_CACHE=true
-[ -f $__GIT_PROMPT_DIR/src/.bin/gitstatus ] && GIT_PROMPT_EXECUTABLE="haskell"
+[ -f "$__GIT_PROMPT_DIR/src/.bin/gitstatus" ] && GIT_PROMPT_EXECUTABLE="haskell"
 
 ps_git_super_status() {
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
@@ -79,7 +81,7 @@ ps_roothash() {
 
 ps_virtual_env() {
     if [ -n "$VIRTUAL_ENV" ]; then
-        echo "%{$fg[yellow]%}env:$(basename $VIRTUAL_ENV)%{$reset_color%} "
+        echo "%{$fg[yellow]%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
     else
         PYENV_LOCAL=$(pyenv local 2> /dev/null | head -1)
         if [ -n "$PYENV_LOCAL" ]; then
@@ -91,9 +93,9 @@ ps_virtual_env() {
 PS1='$(ps_hostname) $(ps_retcode)$(ps_roothash) '
 RPROMPT='$(ps_virtual_env)$(ps_git_super_status)$(ps_aws_default_profile)$(ps_cwd)'
 
-source $HOME/.zaliases
-if [ -f $HOME/.ssh_agent ]; then
-    source $HOME/.ssh_agent
+source "$HOME/.zaliases"
+if [ -f "$HOME/.ssh_agent" ]; then
+    source "$HOME/.ssh_agent"
 fi
 
 # history substring search
@@ -142,13 +144,24 @@ for source in \
     /usr/local/share/zsh/site-functions/git-flow-completion.zsh \
     ; do
     if [ -f "$source" ]; then
-        source $source
+        source "$source"
     fi
 done
 
-if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
-    eval "$(docker-machine env dev 2> /dev/null)"
-fi
+
+# if ( which direnv > /dev/null ); then
+#   _gh_completion() {
+#     COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
+#                    COMP_CWORD="$COMP_CWORD" \
+#                    _GH_COMPLETE=complete "$1" ) )
+#     return 0
+#   }
+#   complete -F _gh_completion -o default gh;
+# fi
+
+#if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
+#    eval "$(docker-machine env dev 2> /dev/null)"
+#fi
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -167,31 +180,27 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
 
 # GPG agent
-GPG_AGENT_FILE="$HOME/.gpg-agent-info"
+GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
 if [[ $(uname -s) == "Darwin" ]]; then
-  PINENTRY=/usr/local/bin/pinentry-mac
-else
-  PINENTRY=/usr/local/bin/pinentrc
+  PINENTRY="--pinentry-program /usr/local/bin/pinentry-mac"
 fi
 function start_gpg_agent {
-  gpg-agent --daemon --write-env-file $GPG_AGENT_FILE --pinentry-program $PINENTRY
+  # gpg-agent --daemon --write-env-file $GPG_AGENT_FILE --pinentry-program $PINENTRY
+  gpg-agent --daemon "${PINENTRY}"
 }
 if which gpg-agent > /dev/null; then
   # start agent if there's no agent file
-  if [ ! -f $GPG_AGENT_FILE ]; then
-    eval $( start_gpg_agent )
+  if [ ! -S "${GPG_AGENT_FILE}" ]; then
+    eval "$( start_gpg_agent )"
   else
-    # check agent works
-    source $GPG_AGENT_FILE
-    SOCKET=$(echo "${GPG_AGENT_INFO}"  | cut -d : -f 1)
     # check agent connection
-    if ( ! nc -U $SOCKET < /dev/null | grep -q "OK Pleased to meet you" ); then
-      eval $( start_gpg_agent )
+    if ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
+      eval "$( start_gpg_agent )"
     fi
   fi
-  export GPG_TTY=$(tty)
+  GPG_TTY=$(tty)
+  export GPG_TTY
 fi
-
 # zpretzo
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 

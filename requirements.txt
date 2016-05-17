@@ -2,7 +2,7 @@ autopep8
 jq
 pip
 boto
+boto3
 pip-tools
 pydocstyle
 python-magic
-requests

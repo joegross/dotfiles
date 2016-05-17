@@ -47,3 +47,5 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
 fi
 
 export GOPATH=$HOME/gocode
+
+export SHELLCHECK_OPTS="-e SC2148 -e SC2034"
