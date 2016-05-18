@@ -181,22 +181,20 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # GPG agent
 GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
-if [[ $(uname -s) == "Darwin" ]]; then
-  PINENTRY="--pinentry-program /usr/local/bin/pinentry-mac"
-fi
+GPG_ENV_FILE="$GPG_AGENT_FILE-env"
+[ -f "$GPG_ENV_FILE" ] && source "$GPG_ENV_FILE"
 function start_gpg_agent {
-  # gpg-agent --daemon --write-env-file $GPG_AGENT_FILE --pinentry-program $PINENTRY
-  gpg-agent --daemon "${PINENTRY}"
+  if [[ $(uname -s) == "Darwin" ]]; then
+    gpg-agent --daemon --use-standard-socket --pinentry-program /usr/local/bin/pinentry-mac
+  else
+    gpg-agent --daemon --use-standard-socket
+  fi
 }
 if which gpg-agent > /dev/null; then
   # start agent if there's no agent file
-  if [ ! -S "${GPG_AGENT_FILE}" ]; then
+  if [ ! -S "${GPG_AGENT_FILE}" ] \
+      || ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
     eval "$( start_gpg_agent )"
-  else
-    # check agent connection
-    if ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
-      eval "$( start_gpg_agent )"
-    fi
   fi
   GPG_TTY=$(tty)
   export GPG_TTY
