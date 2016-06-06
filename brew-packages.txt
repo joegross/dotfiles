@@ -46,9 +46,9 @@ python3
 rbenv
 ruby
 ruby-build
+shellcheck
 sift
 socat
-sslcan
 stress
 terraform
 the_silver_searcher
