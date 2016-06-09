@@ -1,4 +1,5 @@
 atom
+google-cloud-sdk
 haskell-platform
 libreoffice
 ngrok
