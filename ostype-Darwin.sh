@@ -37,7 +37,7 @@ done
 
 pip install --upgrade -r requirements.txt
 
-./docker-machine-on-boot.sh
+# ./docker-machine-on-boot.sh
 
 # zsh-git-prompt
 # compile gitstatus (haskell)
