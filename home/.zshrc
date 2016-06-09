@@ -13,6 +13,13 @@ HOMEBREW_PREFIX=/usr/local
 
 # bindkey -e
 
+function try_source {
+  FILE="$1"
+  if [[ -f "$FILE" ]]; then
+    source "$FILE"
+  fi
+}
+
 # hub: git wrapper
 # This has to go early since everything is terrible
 # https://github.com/github/hub/issues/231
@@ -171,7 +178,7 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
 
 # ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -204,3 +211,7 @@ fi
 
 # iterm3 shell integration
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# google cloud
+eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
+eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
