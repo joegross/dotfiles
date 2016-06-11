@@ -20,6 +20,8 @@ defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YE
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
+brew install ghc
+brew link --overwrite ghc
 grep -v '^ *#' < brew-packages.txt | while IFS= read -r line
 do
   brew install "$line"
