@@ -6,8 +6,11 @@ REPORTTIME=100
 SAVEHIST=10000
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
-unset MANPATH
-MANPATH=$(manpath)
+
+if ( which manpath > /dev/null ); then
+  unset MANPATH
+  MANPATH=$(manpath)
+fi
 
 HOMEBREW_PREFIX=/usr/local
 
