@@ -93,7 +93,7 @@ setopt HIST_NO_STORE           # don't store history command in history
 setopt HIST_SAVE_BY_COPY       # Save new history by copying
 setopt NO_HIST_SAVE_NO_DUPS    # When writing out the history file, older commands that duplicate newer ones are omitted.
 setopt HIST_VERIFY             # reload the line into the editing buffer.
-setopt INC_APPEND_HISTORY      # incrementally save history
+unsetopt INC_APPEND_HISTORY      # incrementally save history
 setopt SHARE_HISTORY           # share history between shells
 
 # Job Control
