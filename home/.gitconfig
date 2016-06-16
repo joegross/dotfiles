@@ -11,3 +11,6 @@
 	stat = true
 [pull]
 	rebase = true
+[core]
+	hooksPath = $HOME/.githooks
+	
