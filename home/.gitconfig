@@ -13,4 +13,5 @@
 	rebase = true
 [core]
 	hooksPath = $HOME/.githooks
-	
+[commit]
+	verbose = true
