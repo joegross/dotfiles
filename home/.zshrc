@@ -104,9 +104,7 @@ PS1='$(ps_hostname) $(ps_retcode)$(ps_roothash) '
 RPROMPT='$(ps_virtual_env)$(ps_git_super_status)$(ps_aws_default_profile)$(ps_cwd)'
 
 source "$HOME/.zaliases"
-if [ -f "$HOME/.ssh_agent" ]; then
-    source "$HOME/.ssh_agent"
-fi
+try_source "$HOME/.ssh_agent"
 
 # history substring search
 # bind P and N for EMACS mode
@@ -122,16 +120,11 @@ if ( which direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
 
-zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit && compinit -i
+# zstyle :compinstall filename '$HOME/.zshrc'
+autoload -Uz compinit && compinit -u
 
-
-if [ "$USER" != "root" ]; then
-  compinit
-  test -f /usr/local/share/zsh/site-functions/_aws && source /usr/local/share/zsh/site-functions/_aws
-  test -f /usr/share/zsh/vendor-completions/_awscli && source /usr/share/zsh/vendor-completions/_awscli
-  #test -f /usr/local/bin/aws_zsh_completer.sh && source /usr/local/bin/aws_zsh_completer.sh
-fi
+try_source /usr/local/share/zsh/site-functions/_aws
+try_source /usr/share/zsh/vendor-completions/_awscli
 
 # add zsh completions idempotentally
 for compl in \
@@ -146,8 +139,6 @@ for compl in \
         fi
     fi
 done
-
-autoload -Uz compinit && compinit -i
 
 for source in \
     /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
@@ -181,13 +172,11 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # added by travis gem
-[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
+try_source "$HOME/.travis/travis.sh"
 
-# ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# added by travis gem
-[ -f /Users/jgross/.travis/travis.sh ] && source /Users/jgross/.travis/travis.sh
+try_source /Users/jgross/.travis/travis.sh
 
 # GPG agent
 GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
@@ -213,8 +202,8 @@ fi
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
 # iterm3 shell integration
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+try_source "${HOME}/.iterm2_shell_integration.zsh"
 
 # google cloud
-eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
-eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
+# eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
+# eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
