@@ -1,10 +1,9 @@
 atom
+flux
 google-cloud-sdk
 haskell-platform
 libreoffice
 ngrok
 transmission
-vagrant
-virtualbox
 wireshark
 xquartz

@@ -1,0 +1,24 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: disable homebew analytics
+      shell: brew analytics off
+
+    - name: upgrade homebrew
+      homebrew: update_homebrew=yes upgrade_all=yes
+    
+    - name: homebrew packages
+      homebrew: name={{ item }} state=latest
+      with_lines: cat ../brew-packages.txt
+      
+    - name: homebrew emacs
+      homebrew: name=emacs install_options=cocoa,srgbw
+
+    # TODO: add install_options=force when 2.2 is released
+    - name: homebrew-cask pacakges
+      homebrew_cask: name={{ item }} state=present
+      with_lines: cat ../brew-cask-packages.txt
+
+    - name: brew cask cleanup
+      shell: brew cask cleanup

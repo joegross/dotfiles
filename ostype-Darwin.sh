@@ -20,23 +20,11 @@ defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YE
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
-brew analytics off
-brew install ghc
-brew link --overwrite ghc
-grep -v '^ *#' < brew-packages.txt | while IFS= read -r line
-do
-  brew install "$line"
-done
-brew install emacs --cocoa --srgb # --with-gnutls
-# brew link --overwrite ghc cabal-install
+(cd "ansible" && ./ansible.sh)
 
 # iterm shell integration
-curl -sL https://iterm2.com/misc/zsh_startup.in -o "$HOME/.iterm2_shell_integration.zsh"
-
-grep -v '^ *#' < brew-cask-packages.txt | while IFS= read -r line
-do
-  brew cask install "$line"
-done
+OUT="$HOME/.iterm2_shell_integration.zsh"
+curl -sL https://iterm2.com/misc/zsh_startup.in -z "$OUT" -o "$OUT"
 
 pip install --upgrade -r requirements.txt
 

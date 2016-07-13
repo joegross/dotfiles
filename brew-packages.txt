@@ -6,7 +6,9 @@ brew-gem
 carthage
 coreutils
 direnv
+fasd
 ffmpeg
+ghc
 gifsicle
 git-subrepo
 gnupg
