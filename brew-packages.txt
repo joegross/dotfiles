@@ -51,6 +51,7 @@ ruby-build
 shellcheck
 sift
 socat
+sslscan
 stress
 terraform
 the_silver_searcher
