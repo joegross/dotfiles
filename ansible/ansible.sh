@@ -1,3 +1,5 @@
 #!/bin/bash
 
-ansible-playbook -i "localhost," -c local site.yml $*
+brew install ansible git
+
+ansible-playbook -i "localhost," -c local homebrew.yml $*
