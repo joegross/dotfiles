@@ -7,11 +7,23 @@
 
     - name: upgrade homebrew
       homebrew: update_homebrew=yes upgrade_all=yes
-    
+
+    - name: brew install ghc
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - cabal-install
+        - ghc
+
+    - name: link ghc
+      shell: brew link --overwrite ghc
+
+    - name: link ghc
+      shell: brew link --overwrite cabal-install
+
     - name: homebrew packages
       homebrew: name={{ item }} state=latest
       with_lines: cat ../brew-packages.txt
-      
+
     - name: homebrew emacs
       homebrew: name=emacs install_options=cocoa,srgbw
 
