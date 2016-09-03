@@ -58,6 +58,7 @@ the_silver_searcher
 tmux
 tree
 watch
+yubikey-personalization
 zsh
 zsh-completions
 zsh-history-substring-search

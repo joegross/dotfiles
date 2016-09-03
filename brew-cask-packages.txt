@@ -7,3 +7,4 @@ ngrok
 transmission
 wireshark
 xquartz
+yubikey-neo-manager
