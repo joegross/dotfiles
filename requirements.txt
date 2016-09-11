@@ -6,3 +6,5 @@ boto3
 pip-tools
 pydocstyle
 python-magic
+yubioath-desktop[cli,gui]
+yubiswitch

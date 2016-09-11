@@ -8,3 +8,4 @@ transmission
 wireshark
 xquartz
 yubikey-neo-manager
+yubikey-personalization-gui

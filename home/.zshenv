@@ -3,12 +3,28 @@
 export EDITOR=emacs
 export LESS=iMFXR
 
+if [[ -x /usr/libexec/java_home ]]; then
+  JAVA_HOME="$(/usr/libexec/java_home)" && export JAVA_HOME
+fi
+
+# prepend paths because homebrew java must come first
+# for addpath in \
+#     $JAVA_HOME/bin \
+#     ; do
+#     if [[ -z ${path[(r)${addpath}]} ]]; then
+#         if [[ -d $addpath ]]; then
+#             path+=$addpath
+#         fi
+#     fi
+# done
+
+export GOPATH=$HOME/gocode
+
 # add extra path completions idempotentally
 for addpath in \
     $HOME/bin \
+    $GOPATH/bin \
     /usr/local/sbin \
-    /srv/genops/tools \
-    /Applications/Sublime\ Text.app/Contents/SharedSupport/bin \
     ; do
     if [[ -z ${path[(r)${addpath}]} ]]; then
         if [[ -d $addpath ]]; then
@@ -23,7 +39,7 @@ fi
 export HOMEBREW_NO_ANALYTICS=1
 
 if [[ -f ~/.atlas_token ]]; then
-    export ATLAS_TOKEN=$(cat $HOME/.atlas_token)
+    export ATLAS_TOKEN="$(cat $HOME/.atlas_token)"
 fi
 
 # less colors
@@ -46,6 +62,10 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-export GOPATH=$HOME/gocode
 
 export SHELLCHECK_OPTS="-e SC2148 -e SC2034"
+
+
+if [[ -d /usr/local/opt/groovy/libexec ]]; then
+  GROOVY_HOME="/usr/local/opt/groovy/libexec" && export GROOVY_HOME
+fi
