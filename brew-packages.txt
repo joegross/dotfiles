@@ -70,4 +70,5 @@ zsh
 zsh-completions
 zsh-git-prompt
 zsh-history-substring-search
+zsh-navigation-tools
 zsh-syntax-highlighting
