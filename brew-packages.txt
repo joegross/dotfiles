@@ -68,5 +68,6 @@ watch
 yubikey-personalization
 zsh
 zsh-completions
+zsh-git-prompt
 zsh-history-substring-search
 zsh-syntax-highlighting

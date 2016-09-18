@@ -18,7 +18,7 @@ function fetch_git {
   cd $OLDPWD
 }
 
-fetch_git git@github.com:olivierverdier/zsh-git-prompt.git
+# fetch_git git@github.com:olivierverdier/zsh-git-prompt.git
 
 # fetch_github git@github.com:sorin-ionescu/prezto.git
 # test ! -L $HOME/.zprezto && ln -sf $HOME/dev/prezto $HOME/.zprezto
