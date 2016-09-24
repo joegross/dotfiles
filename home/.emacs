@@ -17,8 +17,8 @@
 ;---------------;
 
 ;; Git
-(include-plugin "magit")
-(require 'magit)
+;(include-plugin "magit")
+;(require 'magit)
 
 ;; Popup
 (include-elget-plugin "popup")

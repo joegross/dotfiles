@@ -20,9 +20,7 @@
                color-theme-solarized
                ein
                flymake-cursor
-               magit
                markdown-mode
-               nxhtml
                pydoc-info
                pylookup
                scss-mode

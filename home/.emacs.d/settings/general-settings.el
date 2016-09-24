@@ -149,6 +149,6 @@
 (setq vc-follow-symlinks t)
 
 ; Yes. I've read the latest magit release notes
-(setq magit-last-seen-setup-instructions "1.4.0")
+;(setq magit-last-seen-setup-instructions "1.4.0")
 
 (provide 'general-settings)

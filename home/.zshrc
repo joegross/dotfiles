@@ -210,3 +210,6 @@ try_source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 # google cloud
 # eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
 # eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
+
+export GVM_ROOT=/home/jgross/.gvm
+. $GVM_ROOT/scripts/gvm-default
