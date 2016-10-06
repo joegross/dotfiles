@@ -2,7 +2,6 @@ atom
 flux
 google-cloud-sdk
 haskell-platform
-libreoffice
 ngrok
 transmission
 wireshark
