@@ -8,6 +8,9 @@
     - name: upgrade homebrew
       homebrew: update_homebrew=yes upgrade_all=yes
 
+    - name: homebrew tap simeji/jid
+      homebrew_tap: name=simeji/jid
+
     - name: brew install ghc
       homebrew: name={{ item }} state=latest
       with_items:

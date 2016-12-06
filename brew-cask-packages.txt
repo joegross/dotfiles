@@ -1,4 +1,5 @@
 atom
+aws-vault
 flux
 google-cloud-sdk
 haskell-platform

@@ -28,6 +28,7 @@ ipcalc
 ipv6calc
 ipv6toolkit
 iperf3
+jid
 jq
 keybase
 lastpass-cli
@@ -41,14 +42,12 @@ parallel
 pass
 pinentry-mac
 pstree
-pycrypto
 pyenv
 pyenv-ccache
 pyenv-virtualenv
 pyenv-virtualenvwrapper
 pyenv-which-ext
 pyside
-PyInstaller
 python
 python3
 qt
