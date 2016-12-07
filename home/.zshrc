@@ -205,7 +205,7 @@ try_source "${HOME}/.iterm2_shell_integration.zsh"
 
 # zsh-navigation-tools
 # https://github.com/psprint/zsh-navigation-tools
-try_source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+# try_source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
 # google cloud
 # eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
