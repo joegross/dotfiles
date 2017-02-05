@@ -8,6 +8,7 @@ cmake
 coreutils
 direnv
 fasd
+diff-so-fancy
 docker-clean
 docker-cloud
 ffmpeg
@@ -22,6 +23,7 @@ graphviz
 haskell-stack
 heroku-toolbelt
 htop
+httpie
 hub
 imagemagick
 ipcalc
@@ -39,6 +41,7 @@ nmap
 oath-toolkit
 packer
 parallel
+poppler
 pass
 pinentry-mac
 pstree
@@ -59,6 +62,7 @@ sift
 socat
 sslscan
 stress
+swig
 terraform
 the_silver_searcher
 tmux
@@ -66,6 +70,7 @@ tree
 watch
 yubikey-personalization
 zsh
+zsh-autosuggestions
 zsh-completions
 zsh-git-prompt
 zsh-history-substring-search

@@ -100,6 +100,7 @@ ps_virtual_env() {
 }
 
 PS1='$(ps_hostname) $(ps_retcode)$(ps_roothash) '
+# shellcheck disable=SC2016
 RPROMPT='$(ps_virtual_env)$(ps_git_super_status)$(ps_aws_default_profile)$(ps_cwd)'
 
 source "$HOME/.zaliases"
@@ -139,15 +140,8 @@ for compl in \
     fi
 done
 
-for source in \
-    /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh \
-    /usr/local/share/zsh/site-functions/git-flow-completion.zsh \
-    ; do
-    if [ -f "$source" ]; then
-        source "$source"
-    fi
-done
-
+try_source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 
 # if ( which direnv > /dev/null ); then
 #   _gh_completion() {
@@ -212,4 +206,7 @@ try_source "${HOME}/.iterm2_shell_integration.zsh"
 # eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
 
 export GVM_ROOT=$HOME/.gvm
-try_source $GVM_ROOT/scripts/gvm-default
+try_source "$GVM_ROOT/scripts/gvm-default"
+
+# zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions
+try_source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
