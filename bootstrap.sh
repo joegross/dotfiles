@@ -1,21 +1,21 @@
 #!/bin/bash
 
-base=$(dirname ${BASH_SOURCE})
-cd $base
+base=$(dirname "${BASH_SOURCE[0]}")
+cd "$base" || exit
 git pull origin master
 
 function fetch_git {
   REPO=$1
-  REPODIR=$(echo $REPO | sed 's/.*\/\(.*\)\.git$/\1/')
+  REPODIR=$(echo "$REPO" | sed 's/.*\/\(.*\)\.git$/\1/')
   OLDPWD=$(pwd)
-  mkdir -p $HOME/dev
+  mkdir -p "$HOME"/dev
   DESTDIR="$HOME/dev/$REPODIR"
-  if [ ! -d $DESTDIR ]; then
-      git clone --recursive $REPO $DESTDIR
+  if [ ! -d "$DESTDIR" ]; then
+      git clone --recursive "$REPO" "$DESTDIR"
   fi
-  cd $DESTDIR
+  cd "$DESTDIR" || exit
   git pull && git submodule update --init --recursive
-  cd $OLDPWD
+  cd "$OLDPWD" || exit
 }
 
 # fetch_git git@github.com:olivierverdier/zsh-git-prompt.git
@@ -26,5 +26,4 @@ function fetch_git {
 ./linktree.py
 
 OS=$(uname -s)
-exec ./ostype-$OS.sh
-
+./ostype-"$OS".sh
