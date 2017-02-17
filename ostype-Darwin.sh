@@ -24,6 +24,9 @@ mkdir -p $HOME/screenshots
 defaults write com.apple.screencapture location $HOME/screenshots
 killall SystemUIServer
 
+# I never want apple photos
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
 (cd "ansible" && ./ansible.sh)
 
 # iterm shell integration
