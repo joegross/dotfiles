@@ -32,7 +32,6 @@ ipv6toolkit
 iperf3
 jid
 jq
-keybase
 lastpass-cli
 libtool
 mercurial

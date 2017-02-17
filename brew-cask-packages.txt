@@ -1,8 +1,10 @@
 atom
 aws-vault
+docker
 flux
 google-cloud-sdk
 haskell-platform
+keybase
 ngrok
 transmission
 wireshark
