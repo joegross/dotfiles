@@ -1,4 +1,5 @@
 autopep8
+git+git://github.com/sj26/awscli-keyring.git
 jq
 pip
 boto

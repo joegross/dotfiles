@@ -209,4 +209,4 @@ export GVM_ROOT=$HOME/.gvm
 try_source "$GVM_ROOT/scripts/gvm-default"
 
 # zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions
-try_source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# try_source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
