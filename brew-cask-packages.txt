@@ -1,13 +1,24 @@
+# amethyst
 atom
 aws-vault
-docker
+cuda
+bdocker
 flux
+# gisto
 google-cloud-sdk
-haskell-platform
+# haskell-platform
+libreoffice
+inkscape
 keybase
 ngrok
 oversight
+shiftit
+slack
+sublime-text
 transmission
+vagrant
+virtualbox
+vlc
 wireshark
 xquartz
 yubikey-neo-manager
