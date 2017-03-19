@@ -22,24 +22,26 @@ export GOPATH=$HOME/gocode
 
 # add extra path completions idempotentally
 for addpath in \
-    $HOME/bin \
-    $GOPATH/bin \
-    /usr/local/sbin \
-    ; do
-    if [[ -z ${path[(r)${addpath}]} ]]; then
-        if [[ -d $addpath ]]; then
-            path+=$addpath
-        fi
+  $HOME/bin \
+  $GOPATH/bin \
+  /usr/local/sbin \
+  ; do
+  if [[ -z ${path[(r)${addpath}]} ]]; then
+    if [[ -d $addpath ]]; then
+      path+=$addpath
     fi
+  fi
 done
 
 if [[ -f ~/.github_token ]]; then
-    export HOMEBREW_GITHUB_API_TOKEN=$(cat $HOME/.github_token)
+  HOMEBREW_GITHUB_API_TOKEN=$(cat "$HOME"/.github_token)
+  export HOMEBREW_GITHUB_API_TOKEN
 fi
 export HOMEBREW_NO_ANALYTICS=1
 
 if [[ -f ~/.atlas_token ]]; then
-    export ATLAS_TOKEN="$(cat $HOME/.atlas_token)"
+  ATLAS_TOKEN="$(cat "$HOME"/.atlas_token)"
+  export ATLAS_TOKEN
 fi
 
 # less colors

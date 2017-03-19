@@ -1,7 +1,8 @@
 atom
 aws-vault
-cuda
+bettertouchtool
 docker
+exa
 flux
 google-cloud-sdk
 libreoffice
@@ -9,6 +10,7 @@ inkscape
 karabiner
 keybase
 ngrok
+osxfuse
 oversight
 shiftit
 slack
