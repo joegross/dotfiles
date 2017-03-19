@@ -1,14 +1,12 @@
-# amethyst
 atom
 aws-vault
 cuda
-bdocker
+docker
 flux
-# gisto
 google-cloud-sdk
-# haskell-platform
 libreoffice
 inkscape
+karabiner
 keybase
 ngrok
 oversight

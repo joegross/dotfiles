@@ -49,7 +49,6 @@ pyenv-ccache
 pyenv-virtualenv
 pyenv-virtualenvwrapper
 pyenv-which-ext
-pyside
 python
 python3
 qt
@@ -75,3 +74,4 @@ zsh-git-prompt
 zsh-history-substring-search
 zsh-navigation-tools
 zsh-syntax-highlighting
+zplug

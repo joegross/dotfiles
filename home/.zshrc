@@ -201,9 +201,8 @@ try_source "${HOME}/.iterm2_shell_integration.zsh"
 # https://github.com/psprint/zsh-navigation-tools
 # try_source /usr/local/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
-# google cloud
-# eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc')"
-# eval "$(try_source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc')"
+try_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+try_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 export GVM_ROOT=$HOME/.gvm
 try_source "$GVM_ROOT/scripts/gvm-default"
