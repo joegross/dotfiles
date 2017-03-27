@@ -3,6 +3,7 @@ aws-vault
 bettertouchtool
 docker
 exa
+evernote
 flux
 google-cloud-sdk
 libreoffice
