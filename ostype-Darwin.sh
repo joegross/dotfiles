@@ -27,6 +27,11 @@ killall SystemUIServer
 # I never want apple photos
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+# Install homebrew
+if ! which brew > /dev/null; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 (cd "ansible" && ./ansible.sh)
 
 # iterm shell integration

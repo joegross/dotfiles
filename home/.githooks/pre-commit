@@ -2,6 +2,6 @@
 
 repo_dir=$(git rev-parse --show-toplevel)
 
-if ( grep -q "^${HOME}/dockerdev/" <<< "$repo_dir" ); then
-  git config user.email jgross@docker.com
+if ( grep -q "^${HOME}/rdev/" <<< "$repo_dir" ); then
+  git config user.email joe.gross@reddit.com
 fi

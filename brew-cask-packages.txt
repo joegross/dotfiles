@@ -1,3 +1,4 @@
+xquartz
 atom
 aws-vault
 bettertouchtool
@@ -6,8 +7,10 @@ exa
 evernote
 flux
 google-cloud-sdk
+iterm2
 libreoffice
 inkscape
+java
 karabiner
 keybase
 ngrok
@@ -21,7 +24,6 @@ vagrant
 virtualbox
 vlc
 wireshark
-xquartz
 yubikey-neo-manager
 yubikey-personalization-gui
 yubiswitch
