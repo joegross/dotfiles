@@ -13,6 +13,7 @@ inkscape
 java
 karabiner
 keybase
+messenger-for-desktop
 ngrok
 osxfuse
 oversight
