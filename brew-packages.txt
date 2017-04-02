@@ -57,6 +57,7 @@ ruby-build
 shellcheck
 sift
 socat
+sslyze
 sslscan
 stress
 swig

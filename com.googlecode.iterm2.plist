@@ -243,6 +243,10 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>2F4D3D2B-E30C-441D-BE0F-BF003FC03798</string>
+	<key>DeleteProfile_SilenceUntil</key>
+	<real>482368501.17932701</real>
+	<key>DeleteProfile_selection</key>
+	<integer>0</integer>
 	<key>DimBackgroundWindows</key>
 	<false/>
 	<key>DimInactiveSplitPanes</key>
@@ -250,6 +254,8 @@
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
+	<true/>
+	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
@@ -349,13 +355,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>519 112 606 456 0 0 1440 877 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>412 528 616 174 0 0 1440 877 </string>
+	<string>694 567 606 456 0 0 1680 1027 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 139 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 122 796 473 0 0 1440 877 </string>
+	<string>269 122 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 130 890 747 0 0 1440 877 </string>
+	<string>72 230 890 747 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_2F4D3D2B-E30C-441D-BE0F-BF003FC03798</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -547,6 +553,10 @@
 				<key>Red Component</key>
 				<real>0.50599193572998047</real>
 			</dict>
+			<key>Bound Hosts</key>
+			<array>
+				<string>robo</string>
+			</array>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -921,9 +931,9 @@
 			<key>Rows</key>
 			<integer>40</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
-			<integer>0</integer>
+			<integer>100000</integer>
 			<key>Scrollback With Status Bar</key>
 			<true/>
 			<key>Scrollback in Alternate Screen</key>
@@ -1062,12 +1072,14 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
-			<true/>
+			<false/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -1088,33 +1100,85 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDisablePromotions</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>0</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
-	<key>NoSyncInstallationId</key>
-	<string>6327348F-E623-4309-98C8-44334AA4F6F6</string>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
 	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<key>NoSyncInstallationId</key>
+	<string>82D74613-732C-4CDB-AD7A-3B492BDB81D5</string>
+	<key>NoSyncLastTipTime</key>
+	<real>483911950.36219299</real>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
+	<true/>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>490383219.26890302</real>
+	<real>477732486.75439101</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477635648.02297902</real>
+	<real>477730990.12573099</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477635641.94315398</real>
+	<real>477730698.99309403</real>
+	<key>NoSyncTipsDisabled</key>
+	<true/>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
+		<string>0027</string>
+		<string>0028</string>
+		<string>0029</string>
+		<string>0030</string>
+		<string>0031</string>
+		<string>0032</string>
+		<string>0033</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenBookmark</key>
+	<false/>
+	<key>OpenNoWindowsAtStartup</key>
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
@@ -1154,6 +1218,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>~/dev/dotfiles</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1169,11 +1235,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=74</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=29</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-28T23:54:07Z</date>
+	<date>2017-04-01T23:28:35Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1194,6 +1260,16 @@
 	<false/>
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Profiles</string>
+		<string>Paste History</string>
+		<string>Command History</string>
+		<string>Jobs</string>
+		<string>Recent Directories</string>
+		<string>Notes</string>
+		<string>Captured Output</string>
+	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<true/>
 	<key>URLHandlersByGuid</key>
