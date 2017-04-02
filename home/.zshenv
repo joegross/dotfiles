@@ -1,6 +1,6 @@
 # .zshenv
 
-export EDITOR=vim
+export FCEDIT=emacs
 export LESS=iMFXR
 
 if [[ -x /usr/libexec/java_home ]]; then
