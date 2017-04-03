@@ -10,6 +10,7 @@ google-cloud-sdk
 iterm2
 libreoffice
 inkscape
+istat-menus
 java
 karabiner
 keybase
