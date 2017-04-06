@@ -6,6 +6,7 @@ carthage
 cmake
 coreutils
 direnv
+emacs
 fasd
 diff-so-fancy
 docker-clean

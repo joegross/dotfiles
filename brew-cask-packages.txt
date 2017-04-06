@@ -16,14 +16,17 @@ istat-menus
 java
 karabiner
 keybase
+logitech-gaming-software
 messenger-for-desktop
 ngrok
 osxfuse
 oversight
 shiftit
 slack
+smart-scroll
 sublime-text
 transmission
+usb-overdrive
 vagrant
 virtualbox
 vlc

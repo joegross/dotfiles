@@ -27,9 +27,6 @@
       homebrew: name={{ item }} state=latest
       with_lines: cat ../brew-packages.txt
 
-    - name: homebrew emacs
-      homebrew: name=emacs install_options=cocoa,srgbw
-
     # TODO: add install_options=force when 2.2 is released
     - name: homebrew-cask pacakges
       homebrew_cask: name={{ item }} state=present
