@@ -18,6 +18,7 @@ git-subrepo
 gnupg
 gnutls
 go
+gource
 gpg-agent
 graphviz
 haskell-stack

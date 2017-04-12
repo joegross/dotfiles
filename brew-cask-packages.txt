@@ -14,9 +14,7 @@ libreoffice
 inkscape
 istat-menus
 java
-karabiner
 keybase
-logitech-gaming-software
 messenger-for-desktop
 ngrok
 osxfuse
