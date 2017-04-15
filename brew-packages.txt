@@ -5,6 +5,7 @@ brew-gem
 carthage
 cmake
 coreutils
+ctop
 direnv
 emacs
 fasd
