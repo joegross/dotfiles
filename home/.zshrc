@@ -20,6 +20,8 @@ function try_source {
   FILE="$1"
   if [[ -f "$FILE" ]]; then
     source "$FILE"
+  else
+    return 1
   fi
 }
 
@@ -48,8 +50,7 @@ autoload -U colors && colors
 # HELPDIR=/usr/local/share/zsh/help
 
 # zsh-git-prompt
-try_source $HOME/dev/zsh-git-prompt/zshrc.sh
-try_source /usr/local/opt/zsh-git-prompt/zshrc.sh
+try_source $HOME/dev/zsh-git-prompt/zshrc.sh || /usr/local/opt/zsh-git-prompt/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_CACHE=true
@@ -207,6 +208,8 @@ try_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/complet
 
 export GVM_ROOT=$HOME/.gvm
 try_source "$GVM_ROOT/scripts/gvm-default"
+
+return 0
 
 # zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions
 # try_source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
