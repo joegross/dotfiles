@@ -32,5 +32,8 @@
       homebrew_cask: name={{ item }} state=present
       with_lines: cat ../brew-cask-packages.txt
 
+    - name: brew cleanup
+      shell: brew cleanup
+
     - name: brew cask cleanup
       shell: brew cask cleanup
