@@ -9,6 +9,7 @@ ctop
 direnv
 emacs
 fasd
+fdupes
 diff-so-fancy
 docker-clean
 docker-cloud
