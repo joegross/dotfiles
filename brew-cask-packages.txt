@@ -24,9 +24,11 @@ slack
 smart-scroll
 sublime-text
 transmission
+tunnelblick
 usb-overdrive
 vagrant
 virtualbox
+visual-studio-code
 vlc
 wireshark
 yubikey-neo-manager
