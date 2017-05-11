@@ -39,6 +39,7 @@ lastpass-cli
 libtool
 mercurial
 mtr
+mutt
 nmap
 oath-toolkit
 packer
