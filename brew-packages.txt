@@ -5,6 +5,7 @@ brew-gem
 carthage
 cmake
 coreutils
+ctags
 ctop
 direnv
 emacs
@@ -13,6 +14,7 @@ fdupes
 diff-so-fancy
 docker-clean
 docker-cloud
+fdupes
 ffmpeg
 ghc
 gifsicle
@@ -41,11 +43,11 @@ mercurial
 mtr
 mutt
 nmap
+rmlint
 oath-toolkit
 packer
 parallel
 poppler
-pass
 pinentry-mac
 pstree
 pyenv

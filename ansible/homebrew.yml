@@ -8,7 +8,10 @@
     - name: upgrade homebrew
       homebrew: update_homebrew=yes upgrade_all=yes
 
-    - name: homebrew tap simeji/jid
+    - name: homebrew tap buo/cask-upgrade
+      homebrew_tap: name=simeji/jid
+
+    - name: homebrew tap simeji/jid -- json incremental digger
       homebrew_tap: name=simeji/jid
 
     - name: brew install ghc

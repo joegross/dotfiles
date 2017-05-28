@@ -32,7 +32,7 @@ def linktree():
             if not os.path.islink(target):
                 if os.path.isfile(target):
                     os.remove(target)
-                logger.info("linking: %s -> %s" % (target, source))
+                logger.info("linking: %s", target + "->" + source)
                 os.symlink(source, target)
 
 if __name__ == '__main__':

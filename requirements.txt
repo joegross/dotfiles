@@ -1,10 +1,7 @@
 autopep8
-# git+git://github.com/sj26/awscli-keyring.git
-jq
 pip
 boto
 boto3
 pip-tools
 pydocstyle
 python-magic
-#yubioath-desktop[cli,gui]

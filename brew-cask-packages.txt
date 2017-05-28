@@ -16,6 +16,7 @@ istat-menus
 java
 keybase
 messenger-for-desktop
+minikube
 ngrok
 osxfuse
 oversight
