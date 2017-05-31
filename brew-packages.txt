@@ -9,6 +9,7 @@ ctags
 ctop
 direnv
 emacs
+exa
 fasd
 fdupes
 diff-so-fancy

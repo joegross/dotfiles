@@ -5,7 +5,6 @@ aws-vault
 bettertouchtool
 docker
 dropbox
-exa
 evernote
 flux
 google-cloud-sdk
