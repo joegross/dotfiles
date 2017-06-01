@@ -9,7 +9,7 @@
       homebrew: update_homebrew=yes upgrade_all=yes
 
     - name: homebrew tap buo/cask-upgrade
-      homebrew_tap: name=simeji/jid
+      homebrew_tap: name=buo/cask-upgrade
 
     - name: homebrew tap simeji/jid -- json incremental digger
       homebrew_tap: name=simeji/jid
