@@ -21,7 +21,7 @@ defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificatio
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
 
 mkdir -p $HOME/screenshots
-defaults write com.apple.screencapture location $HOME/screenshots
+defaults write com.apple.screencapture location $HOME/Dropbox/screenshots
 killall SystemUIServer
 
 # I never want apple photos
