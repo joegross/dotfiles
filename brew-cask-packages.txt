@@ -30,6 +30,7 @@ vagrant
 virtualbox
 visual-studio-code
 vlc
+wifi-explorer
 wireshark
 yubikey-neo-manager
 yubikey-personalization-gui
