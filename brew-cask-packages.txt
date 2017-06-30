@@ -35,3 +35,4 @@ wireshark
 yubikey-neo-manager
 yubikey-personalization-gui
 yubiswitch
+caskroom/versions/microsoft-remote-desktop-beta

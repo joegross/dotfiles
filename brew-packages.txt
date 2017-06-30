@@ -18,6 +18,7 @@ docker-clean
 docker-cloud
 fdupes
 ffmpeg
+gcc
 ghc
 gifsicle
 git
