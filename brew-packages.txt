@@ -1,3 +1,4 @@
+ansible
 autoconf
 automake
 awscli
@@ -19,6 +20,7 @@ fdupes
 ffmpeg
 ghc
 gifsicle
+git
 git-subrepo
 gnupg
 gnutls
