@@ -25,6 +25,7 @@ for addpath in \
   $HOME/bin \
   $GOPATH/bin \
   /usr/local/sbin \
+  /usr/local/anaconda3/bin \
   ; do
   if [[ -z ${path[(r)${addpath}]} ]]; then
     if [[ -d $addpath ]]; then
