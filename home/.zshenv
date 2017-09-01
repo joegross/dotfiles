@@ -9,7 +9,7 @@ fi
 
 # prepend paths because homebrew java must come first
 # for addpath in \
-#     $JAVA_HOME/bin \
+#     /usr/local/anaconda3/bin \
 #     ; do
 #     if [[ -z ${path[(r)${addpath}]} ]]; then
 #         if [[ -d $addpath ]]; then

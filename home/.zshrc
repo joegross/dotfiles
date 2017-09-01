@@ -93,6 +93,8 @@ ps_roothash() {
 ps_virtual_env() {
     if [ -n "$VIRTUAL_ENV" ]; then
         echo "%{$fg[yellow]%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
+    elif [ -n "$CONDA_DEFAULT_ENV" ]; then
+        echo "%{$fg[yellow]%}conda:$(basename "$CONDA_DEFAULT_ENV")%{$reset_color%} "
     else
         PYENV_LOCAL=$(pyenv local 2> /dev/null | head -1)
         if [ -n "$PYENV_LOCAL" ]; then
@@ -160,8 +162,8 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 #fi
 
 # pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
