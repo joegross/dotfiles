@@ -86,4 +86,3 @@ zsh-completions
 zsh-history-substring-search
 zsh-navigation-tools
 zsh-syntax-highlighting
-zplug
