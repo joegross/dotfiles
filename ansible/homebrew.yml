@@ -5,14 +5,14 @@
     - name: disable homebew analytics
       shell: brew analytics off
 
-    - name: upgrade homebrew
-      homebrew: update_homebrew=yes upgrade_all=yes
+    # - name: upgrade homebrew
+    #   homebrew: update_homebrew=yes upgrade_all=yes
 
-    - name: homebrew tap buo/cask-upgrade
-      homebrew_tap: name=buo/cask-upgrade
+    # - name: homebrew tap buo/cask-upgrade
+    #   homebrew_tap: name=buo/cask-upgrade
 
-    - name: homebrew tap simeji/jid -- json incremental digger
-      homebrew_tap: name=simeji/jid
+    # - name: homebrew tap simeji/jid -- json incremental digger
+    #   homebrew_tap: name=simeji/jid
 
     - name: brew install ghc
       homebrew: name={{ item }} state=latest
@@ -26,14 +26,14 @@
     - name: link ghc
       shell: brew link --overwrite cabal-install
 
-    - name: homebrew packages
-      homebrew: name={{ item }} state=latest
-      with_lines: cat ../brew-packages.txt
+    # - name: homebrew packages
+    #   homebrew: name={{ item }} state=latest
+    #   with_lines: cat ../brew-packages.txt
 
-    # TODO: add install_options=force when 2.2 is released
-    - name: homebrew-cask pacakges
-      homebrew_cask: name={{ item }} state=present
-      with_lines: cat ../brew-cask-packages.txt
+    # # TODO: add install_options=force when 2.2 is released
+    # - name: homebrew-cask pacakges
+    #   homebrew_cask: name={{ item }} state=present
+    #   with_lines: cat ../brew-cask-packages.txt
 
     - name: brew cleanup
       shell: brew cleanup
