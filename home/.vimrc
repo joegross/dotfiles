@@ -1,20 +1,9 @@
-let vimdir = $HOME . '/' . '.vim'
-let backup = vimdir . '/' . 'backup'
-let swap = vimdir . '/' . 'swap'
-let undo = vimdir . '/' . 'undo'
+let tmpdir = $HOME . '/' . '.vim' . '/' . 'tmp'
 
-if !isdirectory(backup)
-    call mkdir(backup, 'p')
+if !isdirectory(tmpdir)
+    call mkdir(tmpdir, 'p')
 endif
 
-if !isdirectory(swap)
-    call mkdir(swap, 'p')
-endif
-
-if !isdirectory(undo)
-    call mkdir(undo, 'p')
-endif
-
-execute "set backupdir=".backup . '//'
-execute "set directory=".swap . '//'
-execute "set undodir=".undo . '//'
+execute "set backupdir=".tmpdir . '//'
+execute "set directory=".tmpdir . '//'
+execute "set undodir=".tmpdir . '//'
