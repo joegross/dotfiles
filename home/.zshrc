@@ -181,9 +181,9 @@ GPG_ENV_FILE="$GPG_AGENT_FILE-env"
 [ -f "$GPG_ENV_FILE" ] && source "$GPG_ENV_FILE"
 function start_gpg_agent {
   if [[ $(uname -s) == "Darwin" ]]; then
-    gpg-agent --daemon --use-standard-socket --pinentry-program /usr/local/bin/pinentry-mac
+    gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry-mac
   else
-    gpg-agent --daemon --use-standard-socket
+    gpg-agent --daemon
   fi
 }
 if which gpg-agent > /dev/null; then
