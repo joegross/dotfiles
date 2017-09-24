@@ -163,7 +163,7 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv-virtualenv-init -)"; fi
 
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
