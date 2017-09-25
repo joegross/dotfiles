@@ -13,6 +13,8 @@ if [ "$(defaults read com.apple.dock no-bouncing)" != "1" ]; then
     killall Dock
 fi
 
+defaults write com.apple.Finder AppleShowAllFiles true
+
 #launchctl stop com.apple.cfprefsd.xpc.agent
 #cp osx/home/Library/Preferences/com.googlecode.iterm2.plist $HOME/Library/Preferences/com.googlecode.iterm2.plist
 #launchctl start com.apple.cfprefsd.xpc.agent
@@ -34,16 +36,18 @@ if ! which brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+make Brewfile
+brew analytics off
 brew update
 brew bundle
-
-(cd "ansible" && ./ansible.sh)
+brew cleanup
+brew cask cleanup
 
 # iterm shell integration
 OUT="$HOME/.iterm2_shell_integration.zsh"
 curl -sL https://iterm2.com/misc/zsh_startup.in -z "$OUT" -o "$OUT"
 
-pip install --upgrade -r requirements.txt
+# pip install --upgrade -r requirements.txt
 
 # zsh-git-prompt
 # compile gitstatus (haskell)
