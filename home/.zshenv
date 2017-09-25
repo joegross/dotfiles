@@ -59,7 +59,6 @@ export LESS_TERMCAP_us=$'\e[0;31m'
 export GREP_COLOR=auto
 # ls colors
 export CLICOLOR=yes
-export CLICOLOR_FORCE=yes
 
 if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
