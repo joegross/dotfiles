@@ -53,3 +53,7 @@ coverage.xml
 docs/_build/
 
 .vscode
+
+.DS_Store
+
+Brewfile
