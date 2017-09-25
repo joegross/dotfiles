@@ -91,15 +91,12 @@ ps_roothash() {
 }
 
 ps_virtual_env() {
-    if [ -n "$VIRTUAL_ENV" ]; then
-        echo "%{$fg[yellow]%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
-    elif [ -n "$CONDA_DEFAULT_ENV" ]; then
+    if [ -n "$CONDA_DEFAULT_ENV" ]; then
         echo "%{$fg[yellow]%}conda:$(basename "$CONDA_DEFAULT_ENV")%{$reset_color%} "
-    else
-        PYENV_LOCAL=$(pyenv local 2> /dev/null | head -1)
-        if [ -n "$PYENV_LOCAL" ]; then
-            echo "%{$fg[yellow]%}pyenv:$PYENV_LOCAL%{$reset_color%} "
-        fi
+    elif [ -n "$PYENV_VIRTUAL_ENV" ]; then
+        echo "%{$fg[yellow]%}pyenv:$(basename "$PYENV_VIRTUAL_ENV")%{$reset_color%} "
+    elif [ -n "$VIRTUAL_ENV" ]; then
+        echo "%{$fg[yellow]%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
     fi
 }
 
