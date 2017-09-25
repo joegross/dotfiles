@@ -21,7 +21,10 @@ ffmpeg
 gcc
 ghc
 gifsicle
+gist
 git
+git-flow
+git-secrets
 git-subrepo
 gnupg
 gnutls
@@ -34,6 +37,7 @@ heroku-toolbelt
 htop
 httpie
 hub
+iftop
 imagemagick
 ipcalc
 ipv6calc
@@ -59,7 +63,6 @@ pstree
 pyenv
 pyenv-ccache
 pyenv-virtualenv
-pyenv-virtualenvwrapper
 pyenv-which-ext
 python
 python3
@@ -74,6 +77,7 @@ sslyze
 sslscan
 stress
 swig
+sysdig
 terraform
 the_silver_searcher
 tmux
@@ -83,6 +87,7 @@ yubikey-personalization
 zsh
 zsh-autosuggestions
 zsh-completions
+zsh-git-prompt
 zsh-history-substring-search
 zsh-navigation-tools
 zsh-syntax-highlighting
