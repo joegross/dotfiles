@@ -1,3 +1,7 @@
 # local direnv config
 # https://github.com/direnv/direnv
 .envrc
+
+# python version flag for pyenv
+# https://github.com/pyenv/pyenv
+.python-version
