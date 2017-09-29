@@ -7,6 +7,7 @@ docker
 dropbox
 evernote
 flux
+font-hack
 google-cloud-sdk
 iterm2
 libreoffice
