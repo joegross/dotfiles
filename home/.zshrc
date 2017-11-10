@@ -48,7 +48,7 @@ autoload -U colors && colors
 # HELPDIR=/usr/local/share/zsh/help
 
 # zsh-git-prompt
-try_source $HOME/dev/zsh-git-prompt/zshrc.sh || /usr/local/opt/zsh-git-prompt/zshrc.sh
+try_source "$HOME/dev/zsh-git-prompt/zshrc.sh" || try_source /usr/local/opt/zsh-git-prompt/zshrc.sh
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_CACHE=true
