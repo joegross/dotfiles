@@ -16,7 +16,7 @@ fi
 
 function try_source {
   FILE="$1"
-  if [[ -f "$FILE" ]]; then
+  if [[ -r "$FILE" ]]; then
     source "$FILE"
   else
     return 1
