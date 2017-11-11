@@ -193,8 +193,10 @@ fi
 # zpretzo
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
-# iterm3 shell integration
-try_source "${HOME}/.iterm2_shell_integration.zsh"
+# source generated includes
+for file in "$(find $HOME/.zinclude -type f -name '*.in')"; do
+    try_source "$file"
+done
 
 # zsh-navigation-tools
 # https://github.com/psprint/zsh-navigation-tools

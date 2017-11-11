@@ -43,8 +43,7 @@ brew cleanup
 brew cask cleanup
 
 # iterm shell integration
-OUT="$HOME/.iterm2_shell_integration.zsh"
-curl -sL https://iterm2.com/misc/zsh_startup.in -z "$OUT" -o "$OUT"
+(cd $HOME/.zinclude && wget -N https://iterm2.com/misc/zsh_startup.in)
 
 # pip install --upgrade -r requirements.txt
 
