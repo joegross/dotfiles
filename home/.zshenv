@@ -7,17 +7,6 @@ if [[ -x /usr/libexec/java_home ]]; then
   JAVA_HOME="$(/usr/libexec/java_home)" && export JAVA_HOME
 fi
 
-# prepend paths because homebrew java must come first
-# for addpath in \
-#     /usr/local/anaconda3/bin \
-#     ; do
-#     if [[ -z ${path[(r)${addpath}]} ]]; then
-#         if [[ -d $addpath ]]; then
-#             path+=$addpath
-#         fi
-#     fi
-# done
-
 export GOPATH=$HOME/gocode
 
 # add extra path completions idempotentally
