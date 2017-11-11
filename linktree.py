@@ -25,6 +25,7 @@ def linktree():
             except OSError as e:
                 if not e.errno == errno.ENOENT:
                     raise e
+            logger.info("mkdir: %s" % sourcedir)
             os.mkdir(sourcedir)
         for f in files:
             source = os.path.normpath(os.path.join(cwd, root, f))
@@ -32,7 +33,7 @@ def linktree():
             if not os.path.islink(target):
                 if os.path.isfile(target):
                     os.remove(target)
-                logger.info("linking: %s", target + "->" + source)
+                logger.info("linking: %s", target + " -> " + source)
                 os.symlink(source, target)
 
 if __name__ == '__main__':
