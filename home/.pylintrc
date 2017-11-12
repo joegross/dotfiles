@@ -1,2 +1,5 @@
 [MESSAGES CONTROL]
-disable=C0103
+#   C0103 = Invalid name
+#   C0111 = Missing docstring
+
+disable=C0103,C0111
