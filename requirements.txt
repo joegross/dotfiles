@@ -4,4 +4,6 @@ boto
 boto3
 pip-tools
 pydocstyle
+pylint
 python-magic
+setuptools
