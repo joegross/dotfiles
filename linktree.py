@@ -25,7 +25,7 @@ def linktree():
             except OSError as e:
                 if not e.errno == errno.ENOENT:
                     raise e
-            logger.info("mkdir: %s" % sourcedir)
+            logger.info("mkdir: %s", sourcedir)
             os.mkdir(sourcedir)
         for f in files:
             source = os.path.normpath(os.path.join(cwd, root, f))
