@@ -23,7 +23,7 @@ def linktree():
             try:
                 os.remove(sourcedir)
             except OSError as e:
-                if not e.errno == errno.ENOENT:
+                if e.errno != errno.ENOENT:
                     raise e
             logger.info("mkdir: %s", sourcedir)
             os.mkdir(sourcedir)
