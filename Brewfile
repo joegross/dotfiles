@@ -15,7 +15,7 @@ brew "coreutils"
 brew "ctags"
 brew "ctop"
 brew "direnv"
-brew "emacs", args: ["with-cocoa"], restart_service: true
+brew "emacs", restart_service: true
 brew "exa"
 brew "fasd"
 brew "fdupes"
