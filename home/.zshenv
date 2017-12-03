@@ -12,6 +12,7 @@ export GOPATH=$HOME/gocode
 # add extra path completions idempotentally
 for addpath in \
   $HOME/bin \
+  $HOME/.mos/bin \
   $GOPATH/bin \
   /usr/local/sbin \
   ; do
