@@ -20,10 +20,14 @@ defaults write com.apple.Finder AppleShowAllFiles true
 #launchctl start com.apple.cfprefsd.xpc.agent
 
 # shut up safari
+# https://www.ctrl.blog/entry/how-to-osx-try-safari-promotion
 defaults write com.apple.coreservices.uiagent CSUIHasSafariBeenLaunched -bool YES
 defaults write com.apple.coreservices.uiagent CSUIRecommendSafariNextNotificationDate -date 2050-01-01T00:00:00Z
 defaults write com.apple.coreservices.uiagent CSUILastOSVersionWhereSafariRecommendationWasMade -float 10.99
-defaults write com.apple.Safari DefaultBrowserDateOfLastPrompt2 -date 2050-01-01T00:00:00Z
+
+# safari: Do not try to change defaults on exit
+defaults write com.apple.Safari DefaultBrowserDateOfLastPrompt -date '2050-01-01T00:00:00Z'
+defaults write com.apple.Safari DefaultBrowserPromptingState -int 2
 
 # mkdir -p $HOME/screenshots
 # defaults write com.apple.screencapture location $HOME/Dropbox/screenshots
