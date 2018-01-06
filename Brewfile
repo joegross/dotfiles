@@ -3,7 +3,6 @@ tap "caskroom/cask"
 tap "caskroom/fonts"
 tap "caskroom/drivers"
 tap "caskroom/fonts"
-brew "ansible"
 brew "aubio", args: ["with-fftw", "with-jack", "with-libav", "with-libsamplerate", "with-libsndfile", "with-python"]
 brew "autoconf"
 brew "automake"
