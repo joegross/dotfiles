@@ -53,7 +53,7 @@ if [[ -d /usr/local/opt/android-sdk ]]; then
   export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-export SHELLCHECK_OPTS="-e SC2148 -e SC2034 --source=/dev/null"
+export SHELLCHECK_OPTS="-e SC2148 -e SC2034"
 
 if [[ -d /usr/local/opt/groovy/libexec ]]; then
   GROOVY_HOME="/usr/local/opt/groovy/libexec" && export GROOVY_HOME
