@@ -1,9 +1,8 @@
-autopep8
 pip
 boto
 boto3
+pep8
 pip-tools
 pydocstyle
 pylint
-python-magic
 setuptools
