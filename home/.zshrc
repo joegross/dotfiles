@@ -60,6 +60,7 @@ ps_git_super_status() {
     fi
 }
 
+# shellcheck disable=2154
 ps_aws_default_profile() {
     if [ -n "$AWS_PROFILE" ]; then
         echo "%{$fg[red]%}aws:${AWS_PROFILE}%{$reset_color%} "
@@ -194,9 +195,10 @@ fi
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
 # source generated includes
-for file in "$(find $HOME/.zinclude -type f -name '*.in')"; do
-    try_source "$file"
-done
+while IFS= read -r -d '' file
+do
+  try_source "$file"
+done < <(find "$HOME/.zinclude" -type f -name '*.in')
 
 # zsh-navigation-tools
 # https://github.com/psprint/zsh-navigation-tools
