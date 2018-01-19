@@ -23,16 +23,6 @@ function try_source {
   fi
 }
 
-# hub: git wrapper
-# This has to go early since everything is terrible
-# https://github.com/github/hub/issues/231
-if which hub > /dev/null; then
-    eval "$(hub alias -s)"
-    if [[ -z ${fpath[(r)/usr/local/share/zsh/site-functions]} ]]; then
-        fpath+=/usr/local/share/zsh/site-functions
-    fi
-fi
-
 # get ec2 instance name
 if [ -x /usr/bin/ec2metadata ]; then
   export AWS_DEFAULT_REGION
@@ -46,6 +36,27 @@ autoload -U colors && colors
 # unalias run-help
 # autoload run-help
 # HELPDIR=/usr/local/share/zsh/help
+
+# zplug
+# export ZPLUG_HOME=/usr/local/opt/zplug
+# source $ZPLUG_HOME/init.zsh
+# zplug "plugins/git-prompt", from:oh-my-zsh
+# # Install plugins if there are plugins that have not been installed
+# if ! zplug check --verbose; then
+#    zplug install
+# fi
+# zplug load
+
+# hub: git wrapper
+# Must go after zplug initializtion since zplug get confused with hub alias
+# https://github.com/zplug/zplug/issues/448
+if which hub > /dev/null; then
+    eval "$(hub alias -s)"
+    if [[ -z ${fpath[(r)/usr/local/share/zsh/site-functions]} ]]; then
+        fpath+=/usr/local/share/zsh/site-functions
+    fi
+fi
+
 
 # zsh-git-prompt
 try_source "$HOME/dev/zsh-git-prompt/zshrc.sh" || try_source /usr/local/opt/zsh-git-prompt/zshrc.sh

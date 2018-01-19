@@ -54,7 +54,7 @@ brew cask cleanup
 
 # zsh-git-prompt
 # compile gitstatus (haskell)
-# cd "$HOME/dev/zsh-git-prompt" || exit
-# stack setup
-# stack build
-# stack install
+cd "$HOME/dev/zsh-git-prompt" || exit
+stack setup
+stack build
+stack install
