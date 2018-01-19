@@ -154,10 +154,6 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 #   complete -F _gh_completion -o default gh;
 # fi
 
-#if [ "$USER" != "root" ] && (which docker-machine > /dev/null); then
-#    eval "$(docker-machine env dev 2> /dev/null)"
-#fi
-
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
