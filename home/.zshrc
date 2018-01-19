@@ -1,5 +1,4 @@
 # shellcheck source=/dev/null
-source $HOME/.zoptions
 source "$HOME/.zoptions"
 
 READNULLCMD=less
