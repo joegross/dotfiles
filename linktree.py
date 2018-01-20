@@ -36,6 +36,7 @@ def linktree():
                 logger.info("linking: %s", target + " -> " + source)
                 os.symlink(source, target)
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-v', dest='loglevel', action='store_const',
