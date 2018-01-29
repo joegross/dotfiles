@@ -7,6 +7,7 @@ tap "caskroom/versions"
 tap "homebrew/core"
 brew "amazon-ecs-cli"
 brew "ansible"
+brew "asdf"
 brew "asciinema"
 brew "aspell"
 # brew "aubio", args: ["with-fftw", "with-jack", "with-libav", "with-libsamplerate", "with-libsndfile", "with-python"]
