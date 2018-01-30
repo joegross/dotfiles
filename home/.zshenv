@@ -34,6 +34,11 @@ if [[ -f ~/.atlas_token ]]; then
   export ATLAS_TOKEN
 fi
 
+# do not correct to builtins
+export CORRECT_IGNORE='_*'
+# do not correct to dotfiles
+export CORRECT_IGNORE_FILE='.*'
+
 # less colors
 export LESSCHARSET='UTF-8'
 export LESS_TERMCAP_mb=$'\e[01;32m'
