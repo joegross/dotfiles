@@ -49,9 +49,7 @@ brew "haskell-stack"
 brew "heroku"
 brew "httpie"
 brew "hub"
-# brew "htop"
-# broken on high sierra
-# https://github.com/hishamhm/htop/issues/682
+brew "htop"
 brew "iftop"
 brew "imagemagick"
 brew "ipcalc"
