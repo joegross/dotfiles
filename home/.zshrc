@@ -165,10 +165,10 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 # fi
 
 # pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 # completion fix until https://github.com/Homebrew/homebrew-core/pull/22727 is approved
-try_source /usr/local/share/zsh/site-functions/pyenv.zsh
+# try_source /usr/local/share/zsh/site-functions/pyenv.zsh
 
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
