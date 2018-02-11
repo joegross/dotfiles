@@ -173,12 +173,10 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 # disable virtualenv prompt prepending since it's done in RPROMPT
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# added by travis gem
-try_source "$HOME/.travis/travis.sh"
+# adds 60ms to shell startup
+# try_source "$HOME/.travis/travis.sh"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-try_source /Users/jgross/.travis/travis.sh
 
 # GPG agent
 GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
