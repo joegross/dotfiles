@@ -132,6 +132,7 @@ cask "oversight"
 cask "slack"
 cask "smart-scroll"
 cask "sublime-text"
+cask "timemachineeditor"
 cask "transmission"
 cask "tunnelblick"
 # Only needed on desktop
