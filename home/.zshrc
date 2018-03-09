@@ -93,7 +93,7 @@ ps_retcode() {
 ps_roothash() {
     # echo "%{$fg[magenta]%}%#%{$reset_color%}"
     if [[ "$(whoami)" == "root" ]]; then
-        hashmark='🚀"'
+        hashmark='🚀'
     else
         hashmark='%%'
     fi
