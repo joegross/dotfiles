@@ -4,7 +4,7 @@ la() { source ~/.zaliases; }
 p() { ps auxf; }
 pp() { ps auxfww; }
 d() { exa --color=always --color-scale --git -l $* | less -iMqXER; }
-nd() { exa --color=always --color-scale --git -al $* | less -iMqXER; }
+nd() { exa --color=always --color-scale --git -aal $* | less -iMqXER; }
 l() { exa --color=always --color-scale --git $* | less -iMqXER; }
 etl() { exa --color=always --color-scale --git -T -l $* | less -iMqXER; }
 sd() { sudo -s; }
