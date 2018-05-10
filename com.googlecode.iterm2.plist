@@ -358,16 +358,20 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1668 396 445 77 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>694 567 606 456 0 0 1680 1027 </string>
+	<string>702 949 606 456 0 0 2560 1417 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>972 933 616 174 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1680 1027 </string>
+	<string>330 9 697 509 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>705 130 918 512 0 0 1680 1027 </string>
+	<string>341 428 796 473 0 0 2560 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>127 443 592 584 0 0 1680 1027 </string>
+	<string>613 603 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>163 131 1015 788 0 0 1680 1027 </string>
+	<string>322 204 795 587 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_2F4D3D2B-E30C-441D-BE0F-BF003FC03798</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1136,64 +1140,24 @@
 	<integer>0</integer>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
-	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
-	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>82D74613-732C-4CDB-AD7A-3B492BDB81D5</string>
-	<key>NoSyncLastTipTime</key>
-	<real>483911950.36219299</real>
+	<string>D017211F-1251-4C1B-8A57-4A6E206D7413</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
 	<true/>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>NoSyncPermissionToShowTip</key>
-	<true/>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>477732486.75439101</real>
+	<real>481695168.83230901</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477730990.12573099</real>
+	<real>477870516.91216201</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477730698.99309403</real>
-	<key>NoSyncTipsDisabled</key>
-	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
-		<string>0009</string>
-		<string>0010</string>
-		<string>0011</string>
-		<string>0012</string>
-		<string>0013</string>
-		<string>0014</string>
-		<string>0015</string>
-		<string>0016</string>
-		<string>0017</string>
-		<string>0018</string>
-		<string>0019</string>
-		<string>0020</string>
-		<string>0021</string>
-		<string>0022</string>
-		<string>0023</string>
-		<string>0024</string>
-		<string>0025</string>
-		<string>0026</string>
-		<string>0027</string>
-		<string>0028</string>
-		<string>0029</string>
-		<string>0030</string>
-		<string>0031</string>
-		<string>0032</string>
-		<string>0033</string>
-	</array>
+	<real>477870495.953107</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1257,15 +1221,19 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml?shard=29</string>
+	<string>https://iterm2.com/appcasts/nightly.xml?shard=28</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-07T22:12:49Z</date>
+	<date>2018-02-04T04:52:14Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
+	<key>ShowMetalFPSmeter</key>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -1295,7 +1263,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<true/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1509511424</real>
+	<real>1473632000</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1303,6 +1271,8 @@
 	<key>UseCompactLabel</key>
 	<true/>
 	<key>UseLionStyleFullscreen</key>
+	<true/>
+	<key>UseMetal</key>
 	<true/>
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
@@ -1321,6 +1291,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.5.beta.2</string>
+	<string>3.2.20180203-nightly</string>
 </dict>
 </plist>
