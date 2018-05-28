@@ -3,10 +3,16 @@ la() { source ~/.zaliases; }
 ..() { cd ..; }
 p() { ps auxf; }
 pp() { ps auxfww; }
-d() { exa --color=always --color-scale --git -l $* | less -iMqXER; }
-nd() { exa --color=always --color-scale --git -aal $* | less -iMqXER; }
-l() { exa --color=always --color-scale --git $* | less -iMqXER; }
-etl() { exa --color=always --color-scale --git -T -l $* | less -iMqXER; }
+if which exa > /dev/null; then
+  d() { exa --color=always --color-scale --git -l $* | less -iMqXER; }
+  nd() { exa --color=always --color-scale --git -aal $* | less -iMqXER; }
+  l() { exa --color=always --color-scale --git $* | less -iMqXER; }
+  etl() { exa --color=always --color-scale --git -T -l $* | less -iMqXER; }
+else
+  d() { ls -l --color=always $* | less -iMqXER; }
+  nd() { ls -al --color=always $* | less -iMqXER; }
+  l() { ls --color=always $* | less -iMqXER; }
+fi
 sd() { sudo -s; }
 watchd() { watch -n .2 grep -A 1 dirty /proc/vmstat; }
 srd() { screen -r -d "$( screen -list | grep pts | awk '{print $1}')"; }
