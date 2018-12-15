@@ -37,7 +37,7 @@ defaults write com.apple.Safari DefaultBrowserPromptingState -int 2
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
 # Install homebrew
-if ! which brew > /dev/null; then
+if ! command -v brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
@@ -45,7 +45,6 @@ brew analytics off
 brew update
 brew bundle
 brew cleanup
-brew cask cleanup
 
 # iterm shell integration
 (cd "$HOME/.zinclude" && wget -N https://iterm2.com/misc/zsh_startup.in)
