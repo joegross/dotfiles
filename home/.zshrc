@@ -178,6 +178,9 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 
 if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 # GPG agent
 GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
