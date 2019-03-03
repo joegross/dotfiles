@@ -7,7 +7,7 @@ SAVEHIST=10000
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 
-if ( which manpath > /dev/null ); then
+if ( command -v manpath > /dev/null ); then
   unset MANPATH
   MANPATH=$(manpath)
 fi
@@ -50,7 +50,7 @@ autoload -U colors && colors
 # hub: git wrapper
 # Must go after zplug initializtion since zplug get confused with hub alias
 # https://github.com/zplug/zplug/issues/448
-if which hub > /dev/null; then
+if command -v hub > /dev/null; then
     eval "$(hub alias -s)"
     if [[ -z ${fpath[(r)/usr/local/share/zsh/site-functions]} ]]; then
         fpath+=/usr/local/share/zsh/site-functions
@@ -127,7 +127,7 @@ fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-if ( which direnv > /dev/null ); then
+if ( command -v direnv > /dev/null ); then
     eval "$(direnv hook zsh)"
 fi
 
@@ -165,8 +165,8 @@ try_source /usr/local/share/zsh/site-functions/git-flow-completion.zsh
 # fi
 
 # pyenv
-# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if command -v pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if command -v pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 # completion fix until https://github.com/Homebrew/homebrew-core/pull/22727 is approved
 # try_source /usr/local/share/zsh/site-functions/pyenv.zsh
 
@@ -176,7 +176,8 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 # adds 60ms to shell startup
 # try_source "$HOME/.travis/travis.sh"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 
 # GPG agent
 GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
@@ -189,7 +190,7 @@ function start_gpg_agent {
     gpg-agent --daemon
   fi
 }
-if which gpg-agent > /dev/null; then
+if command -v gpg-agent > /dev/null; then
   # start agent if there's no agent file
   if [ ! -S "${GPG_AGENT_FILE}" ] \
       || ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
@@ -217,7 +218,7 @@ try_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/complet
 export GVM_ROOT=$HOME/.gvm
 try_source "$GVM_ROOT/scripts/gvm-default"
 
-if which kubectl > /dev/null; then
+if command -v kubectl > /dev/null; then
   source <(kubectl completion zsh)
 fi
 
