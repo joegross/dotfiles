@@ -74,16 +74,16 @@ ps_git_super_status() {
 # shellcheck disable=2154
 ps_aws_default_profile() {
     if [ -n "$AWS_PROFILE" ]; then
-        echo "%{$fg[red]%}aws:${AWS_PROFILE}%{$reset_color%} "
+        echo "%{${fg[red]}%}aws:${AWS_PROFILE}%{$reset_color%} "
     fi
 }
 
 ps_cwd() {
-    echo "%{$fg[green]%}%20<...<%~%{$reset_color%}"
+    echo "%{${fg[green]}%}%20<...<%~%{$reset_color%}"
 }
 
 ps_hostname() {
-    echo "%{$fg[cyan]%}%m%{$reset_color%}"
+    echo "%{${fg[cyan]}%}%m%{$reset_color%}"
 }
 
 ps_retcode() {
@@ -97,16 +97,16 @@ ps_roothash() {
     else
         hashmark='%%'
     fi
-    echo "%{$fg[magenta]%}$hashmark%{$reset_color%}"
+    echo "%{${fg[magenta]}%}$hashmark%{$reset_color%}"
 }
 
 ps_virtual_env() {
     if [ -n "$CONDA_DEFAULT_ENV" ]; then
-        echo "%{$fg[yellow]%}conda:$(basename "$CONDA_DEFAULT_ENV")%{$reset_color%} "
+        echo "%{${fg[yellow]}%}conda:$(basename "$CONDA_DEFAULT_ENV")%{$reset_color%} "
     elif [ -n "$PYENV_VIRTUAL_ENV" ]; then
-        echo "%{$fg[yellow]%}pyenv:$(basename "$PYENV_VIRTUAL_ENV")%{$reset_color%} "
+        echo "%{${fg[yellow]}%}pyenv:$(basename "$PYENV_VIRTUAL_ENV")%{$reset_color%} "
     elif [ -n "$VIRTUAL_ENV" ]; then
-        echo "%{$fg[yellow]%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
+        echo "%{${fg[yellow]}%}env:$(basename "$VIRTUAL_ENV")%{$reset_color%} "
     fi
 }
 
