@@ -33,7 +33,7 @@ brew "emacs", restart_service: true
 brew "exa"
 brew "fasd"
 brew "fdupes"
-brew "ffmpeg", args: ["with-chromaprint", "with-fontconfig", "with-freetype", "with-libvidstab", "with-sdl2", "with-tools", "with-x265"]
+brew "ffmpeg", args: ["HEAD", "with-aom", "with-two-lame", "with-openssl", "with-fdk-aac", "with-openh264", "with-chromaprint", "with-fontconfig", "with-freetype", "with-libvidstab"]
 brew "flake8"
 brew "gcc"
 brew "geoip"
