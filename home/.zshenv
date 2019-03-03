@@ -65,3 +65,6 @@ if [[ -d /usr/local/opt/groovy/libexec ]]; then
 fi
 
 export PLATFORMIO_SETTING_ENABLE_TELEMETRY=no
+
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=1
+
