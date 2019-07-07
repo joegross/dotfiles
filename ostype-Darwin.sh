@@ -36,6 +36,9 @@ defaults write com.apple.Safari DefaultBrowserPromptingState -int 2
 # I never want apple photos
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+# chrome - always use system dialogue for printing
+defaults write com.google.Chrome DisablePrintPreview -bool true
+
 # Install homebrew
 if ! command -v brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
