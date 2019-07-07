@@ -198,25 +198,25 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 # GPG agent
-GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
-GPG_ENV_FILE="$GPG_AGENT_FILE-env"
-[ -f "$GPG_ENV_FILE" ] && source "$GPG_ENV_FILE"
-function start_gpg_agent {
-  if [[ $(uname -s) == "Darwin" ]]; then
-    gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry-mac
-  else
-    gpg-agent --daemon
-  fi
-}
-if command -v gpg-agent > /dev/null; then
-  # start agent if there's no agent file
-  if [ ! -S "${GPG_AGENT_FILE}" ] \
-      || ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
-    eval "$( start_gpg_agent )"
-  fi
-  GPG_TTY=$(tty)
-  export GPG_TTY
-fi
+# GPG_AGENT_FILE="${HOME}/.gnupg/S.gpg-agent"
+# GPG_ENV_FILE="$GPG_AGENT_FILE-env"
+# [ -f "$GPG_ENV_FILE" ] && source "$GPG_ENV_FILE"
+# function start_gpg_agent {
+#   if [[ $(uname -s) == "Darwin" ]]; then
+#     gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry-mac
+#   else
+#     gpg-agent --daemon
+#   fi
+# }
+# if command -v gpg-agent > /dev/null; then
+#   # start agent if there's no agent file
+#   if [ ! -S "${GPG_AGENT_FILE}" ] \
+#       || ( ! nc -U "${GPG_AGENT_FILE}" < /dev/null | grep -q "OK Pleased to meet you" ); then
+#     eval "$( start_gpg_agent )"
+#   fi
+#   GPG_TTY=$(tty)
+#   export GPG_TTY
+# fi
 # zpretzo
 # [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
