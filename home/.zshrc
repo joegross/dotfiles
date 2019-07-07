@@ -132,10 +132,25 @@ if ( command -v direnv > /dev/null ); then
 fi
 
 # zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit && compinit -u
+# autoload -Uz compinit && compinit -u
 
-try_source /usr/local/share/zsh/site-functions/_aws
-try_source /usr/share/zsh/vendor-completions/_awscli
+# from https://gist.github.com/ctechols/ca1035271ad134841284
+# On slow systems, checking the cached .zcompdump file to see if it must be 
+# regenerated adds a noticable delay to zsh startup.  This little hack restricts 
+# it to once a day.  It should be pasted into your own completion file.
+#
+# The globbing is a little complicated here:
+# - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
+# - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
+# - '.' matches "regular files"
+# - 'mh+24' matches files (or directories or whatever) that are older than 24 hours.
+autoload -Uz compinit 
+if test -n "${ZDOTDIR}/.zcompdump(#qN.mh+24)"; then
+	compinit;
+else
+	compinit -C;
+fi;
+
 
 # add zsh completions idempotentally
 for compl in \
