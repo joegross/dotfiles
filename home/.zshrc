@@ -151,6 +151,8 @@ else
 	compinit -C;
 fi;
 
+try_source /usr/local/share/zsh/site-functions/_aws
+try_source /usr/share/zsh/vendor-completions/_awscli
 
 # add zsh completions idempotentally
 for compl in \
