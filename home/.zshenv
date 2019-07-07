@@ -9,20 +9,6 @@ fi
 
 export GOPATH=$HOME/gocode
 
-# add extra path completions idempotentally
-for addpath in \
-  $HOME/bin \
-  $HOME/.mos/bin \
-  $GOPATH/bin \
-  /usr/local/sbin \
-  ; do
-  if [[ -z ${path[(r)${addpath}]} ]]; then
-    if [[ -d $addpath ]]; then
-      path+=$addpath
-    fi
-  fi
-done
-
 if [[ -f ~/.github_token ]]; then
   HOMEBREW_GITHUB_API_TOKEN=$(cat "$HOME"/.github_token)
   export HOMEBREW_GITHUB_API_TOKEN
