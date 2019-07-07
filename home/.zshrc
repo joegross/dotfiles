@@ -191,7 +191,7 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 # adds 60ms to shell startup
 # try_source "$HOME/.travis/travis.sh"
 
-if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if command -v rbenv > /dev/null; then eval "$(rbenv init --no-rehash -)"; fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
