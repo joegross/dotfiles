@@ -236,9 +236,10 @@ try_source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/complet
 export GVM_ROOT=$HOME/.gvm
 try_source "$GVM_ROOT/scripts/gvm-default"
 
-if command -v kubectl > /dev/null; then
-  source <(kubectl completion zsh)
-fi
+# super slow until https://github.com/kubernetes/kubernetes/issues/59078 is resolved
+# if command -v kubectl > /dev/null; then
+#   source <(kubectl completion zsh)
+# fi
 
 return 0
 
